@@ -8,3 +8,4 @@ dist/
 *.log
 test-out*/
 test-generate*
+test-all.mjs

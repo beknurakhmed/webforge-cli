@@ -7,4 +7,4 @@ bootstrapApplication(AppComponent, {
   providers: [
     provideRouter(routes),
   ],
-});
+}).catch((err: unknown) => console.error(err));

@@ -1,110 +1,62 @@
 'use client';
 
-import { useState } from 'react';
-
 interface Deal {
   id: number;
-  title: string;
   company: string;
-  value: string;
-  stage: 'Qualification' | 'Proposal' | 'Negotiation' | 'Closed Won' | 'Closed Lost';
-  probability: number;
+  value: number;
   contact: string;
-  closeDate: string;
-  icon: string;
+  stage: string;
 }
 
 const deals: Deal[] = [
-  { id: 1, title: 'Enterprise License', company: 'TechCorp Inc.', value: '$45,000', stage: 'Negotiation', probability: 75, contact: 'Sarah Chen', closeDate: '2025-02-15', icon: '🏢' },
-  { id: 2, title: 'Platform Migration', company: 'Innovate.io', value: '$28,000', stage: 'Proposal', probability: 50, contact: 'James Wilson', closeDate: '2025-03-01', icon: '🔄' },
-  { id: 3, title: 'Design System', company: 'DesignLab Co.', value: '$15,000', stage: 'Qualification', probability: 25, contact: 'Maria Garcia', closeDate: '2025-03-15', icon: '🎨' },
-  { id: 4, title: 'Premium Package', company: 'GlobalNet Ltd.', value: '$62,000', stage: 'Closed Won', probability: 100, contact: 'Robert Kim', closeDate: '2025-01-10', icon: '🎉' },
-  { id: 5, title: 'Starter Plan', company: 'StartupXYZ', value: '$18,500', stage: 'Proposal', probability: 40, contact: 'Emily Brown', closeDate: '2025-02-28', icon: '🚀' },
-  { id: 6, title: 'Consulting Retainer', company: 'Enterprise Solutions', value: '$8,200', stage: 'Closed Lost', probability: 0, contact: 'Michael Davis', closeDate: '2025-01-05', icon: '📋' },
+  { id: 1, company: 'TechCorp Inc.', value: 45000, contact: 'Sarah Chen', stage: 'Prospect' },
+  { id: 2, company: 'Innovate.io', value: 28000, contact: 'James Wilson', stage: 'Proposal' },
+  { id: 3, company: 'DesignLab Co.', value: 15000, contact: 'Maria Garcia', stage: 'Qualified' },
+  { id: 4, company: 'GlobalNet Ltd.', value: 62000, contact: 'Robert Kim', stage: 'Won' },
+  { id: 5, company: 'StartupXYZ', value: 18500, contact: 'Emily Brown', stage: 'Proposal' },
+  { id: 6, company: 'Oscorp Labs', value: 34000, contact: 'Michael Davis', stage: 'Prospect' },
+  { id: 7, company: 'LexCorp', value: 55000, contact: 'Rachel Green', stage: 'Qualified' },
+  { id: 8, company: 'Umbrella Co.', value: 21000, contact: 'Lisa Wang', stage: 'Won' },
 ];
 
-const stages = ['All', 'Qualification', 'Proposal', 'Negotiation', 'Closed Won', 'Closed Lost'];
+const stages = ['Prospect', 'Qualified', 'Proposal', 'Won'];
 
 export default function DealsPage() {
-  const [activeStage, setActiveStage] = useState('All');
-
-  const filtered = activeStage === 'All' ? deals : deals.filter((d) => d.stage === activeStage);
   const pipelineTotal = deals
-    .filter((d) => d.stage !== 'Closed Won' && d.stage !== 'Closed Lost')
-    .reduce((sum, d) => sum + parseInt(d.value.replace(/[$,]/g, '')), 0);
+    .filter((d) => d.stage !== 'Won')
+    .reduce((sum, d) => sum + d.value, 0);
 
   return (
     <div className="page">
       <div className="page-header">
-        <h1>Deals</h1>
-        <p>Track your sales pipeline and deal progress.</p>
+        <h1>Deals Pipeline</h1>
+        <p>Pipeline value: ${pipelineTotal.toLocaleString()}</p>
       </div>
 
-      <div className="deals-summary">
-        <div className="deal-stat">
-          <p className="deal-stat-value">{deals.length}</p>
-          <p className="deal-stat-label">Total Deals</p>
-        </div>
-        <div className="deal-stat">
-          <p className="deal-stat-value">${pipelineTotal.toLocaleString()}</p>
-          <p className="deal-stat-label">Pipeline Value</p>
-        </div>
-        <div className="deal-stat">
-          <p className="deal-stat-value">{deals.filter((d) => d.stage === 'Closed Won').length}</p>
-          <p className="deal-stat-label">Won This Month</p>
-        </div>
-        <div className="deal-stat">
-          <p className="deal-stat-value">{Math.round(deals.reduce((sum, d) => sum + d.probability, 0) / deals.length)}%</p>
-          <p className="deal-stat-label">Avg. Probability</p>
-        </div>
-      </div>
+      <div className="deals-board">
+        {stages.map((stage) => {
+          const stageDeals = deals.filter((d) => d.stage === stage);
+          const stageTotal = stageDeals.reduce((sum, d) => sum + d.value, 0);
 
-      <div className="filter-group" style={{ marginBottom: '1.5rem' }}>
-        {stages.map((stage) => (
-          <button
-            key={stage}
-            className={`filter-btn ${activeStage === stage ? 'active' : ''}`}
-            onClick={() => setActiveStage(stage)}
-          >
-            {stage}
-          </button>
-        ))}
-      </div>
-
-      <div className="deals-grid">
-        {filtered.map((deal) => (
-          <div key={deal.id} className="deal-card">
-            <div className="deal-card-header">
-              <span className="deal-icon">{deal.icon}</span>
-              <span className={`stage-badge ${deal.stage.toLowerCase().replace(' ', '-')}`}>{deal.stage}</span>
-            </div>
-            <h3 className="deal-title">{deal.title}</h3>
-            <p className="deal-company">{deal.company}</p>
-            <div className="deal-details">
-              <div className="deal-detail">
-                <span className="deal-label">Value</span>
-                <span className="deal-value-text">{deal.value}</span>
+          return (
+            <div key={stage} className="deals-column">
+              <div className="column-header">
+                <h3 className="column-title">{stage}</h3>
+                <span className="column-count">{stageDeals.length}</span>
               </div>
-              <div className="deal-detail">
-                <span className="deal-label">Contact</span>
-                <span>{deal.contact}</span>
-              </div>
-              <div className="deal-detail">
-                <span className="deal-label">Close Date</span>
-                <span>{deal.closeDate}</span>
+              <p className="column-total">${stageTotal.toLocaleString()}</p>
+              <div className="column-cards">
+                {stageDeals.map((deal) => (
+                  <div key={deal.id} className="deal-card">
+                    <h4 className="deal-company">{deal.company}</h4>
+                    <p className="deal-value">${deal.value.toLocaleString()}</p>
+                    <span className="deal-contact">👤 {deal.contact}</span>
+                  </div>
+                ))}
               </div>
             </div>
-            <div className="deal-probability">
-              <div className="probability-header">
-                <span>Probability</span>
-                <span>{deal.probability}%</span>
-              </div>
-              <div className="probability-bar">
-                <div className="probability-fill" style={{ width: `${deal.probability}%` }} />
-              </div>
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );
