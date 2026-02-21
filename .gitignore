@@ -6,3 +6,5 @@ dist/
 .idea/
 .vscode/
 *.log
+test-out*/
+test-generate*
