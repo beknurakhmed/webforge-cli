@@ -1,48 +1,77 @@
+/* Layout */
 .crm { display: flex; min-height: 100vh; }
-.sidebar { width: 240px; background: #111827; color: white; padding: 1.5rem; flex-shrink: 0; }
-.sidebar-logo { font-size: 1.25rem; font-weight: 700; padding: 0.5rem 0.75rem; margin-bottom: 2rem; color: #4f46e5; }
-.sidebar-nav { display: flex; flex-direction: column; gap: 0.25rem; }
-.sidebar-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.7rem; border-radius: 8px; color: #9ca3af; text-decoration: none; transition: all 0.15s; }
-.sidebar-item:hover { background: #1f2937; color: white; }
-.sidebar-item.active { background: #4f46e5; color: white; }
-
 .crm-main { flex: 1; background: #f9fafb; padding: 2rem; overflow-y: auto; }
 .crm-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
 .crm-header h1 { font-size: 1.75rem; font-weight: 700; color: #111827; margin: 0; }
-.btn-primary { background: #4f46e5; color: white; border: none; padding: 0.6rem 1.25rem; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 0.9rem; }
 
+/* Sidebar */
+.sidebar { width: 240px; background: #111827; color: white; padding: 1.5rem; flex-shrink: 0; }
+.sidebar-logo { font-size: 1.25rem; font-weight: 700; padding: 0.5rem 0.75rem; margin-bottom: 2rem; color: #4f46e5; }
+.sidebar-nav { display: flex; flex-direction: column; gap: 0.25rem; }
+.sidebar-link { display: flex; align-items: center; gap: 0.75rem; padding: 0.7rem; border-radius: 8px; color: #9ca3af; text-decoration: none; transition: all 0.15s; }
+.sidebar-link:hover { background: #1f2937; color: white; }
+.sidebar-link.active { background: #4f46e5; color: white; }
+.sidebar-icon { font-size: 1.1rem; }
+
+/* Buttons */
+.btn-primary { background: #4f46e5; color: white; border: none; padding: 0.6rem 1.25rem; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 0.9rem; }
+.btn-primary:hover { background: #4338ca; }
+
+/* Search */
+.search-input { padding: 0.5rem 1rem; border: 1px solid #d1d5db; border-radius: 8px; font-size: 0.9rem; width: 260px; }
+.search-input:focus { outline: none; border-color: #4f46e5; box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.15); }
+
+/* Stats */
 .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
 .stat-card { background: white; border-radius: 12px; padding: 1.25rem; border: 1px solid #e5e7eb; position: relative; overflow: hidden; }
 .stat-indicator { position: absolute; top: 0; left: 0; width: 4px; height: 100%; }
 .stat-label { font-size: 0.8rem; color: #6b7280; }
 .stat-value { font-size: 1.75rem; font-weight: 700; color: #111827; }
 
-.filters { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; }
-.filter-btn { background: white; border: 1px solid #d1d5db; padding: 0.4rem 1rem; border-radius: 20px; cursor: pointer; font-size: 0.85rem; color: #6b7280; transition: all 0.15s; }
-.filter-btn:hover { border-color: #4f46e5; color: #4f46e5; }
-.filter-btn.active { background: #4f46e5; color: white; border-color: #4f46e5; }
+/* Section title */
+.section-title { font-size: 1.15rem; font-weight: 600; color: #111827; margin: 1.5rem 0 1rem; }
 
+/* Table */
 .table-card { background: white; border-radius: 12px; border: 1px solid #e5e7eb; overflow: hidden; }
 .data-table { width: 100%; border-collapse: collapse; }
 .data-table th { text-align: left; padding: 0.75rem 1.25rem; font-size: 0.8rem; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; background: #f9fafb; border-bottom: 1px solid #e5e7eb; }
 .data-table td { padding: 0.75rem 1.25rem; border-bottom: 1px solid #f3f4f6; font-size: 0.9rem; }
 .contact-name { font-weight: 600; color: #111827; }
 .contact-email { color: #6b7280; }
-.contact-value { font-weight: 600; color: #111827; }
-.contact-time { color: #9ca3af; font-size: 0.85rem; }
+.contact-phone { color: #374151; }
 .status-badge { padding: 0.2rem 0.6rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 500; }
 .status-lead { background: #fef3c7; color: #92400e; }
 .status-prospect { background: #dbeafe; color: #1e40af; }
 .status-customer { background: #d1fae5; color: #065f46; }
 .status-churned { background: #fee2e2; color: #991b1b; }
 
-@media (max-width: 768px) { .crm { flex-direction: column; } .sidebar { width: 100%; } }
+/* Deals Board */
+.deals-board { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.deals-column { background: white; border-radius: 12px; padding: 1rem; border: 1px solid #e5e7eb; }
+.column-title { font-size: 0.9rem; font-weight: 600; color: #374151; margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 2px solid #4f46e5; }
+.deal-card { background: #f9fafb; border-radius: 8px; padding: 1rem; margin-bottom: 0.75rem; border: 1px solid #e5e7eb; }
+.deal-company { font-size: 0.95rem; font-weight: 600; color: #111827; margin: 0 0 0.25rem; }
+.deal-value { font-size: 1.1rem; font-weight: 700; color: #4f46e5; margin: 0.25rem 0; }
+.deal-contact { font-size: 0.8rem; color: #6b7280; }
 
-@media (prefers-color-scheme: dark) {
-  .crm-main { background: #0f172a; }
-  .crm-header h1, .stat-value, .contact-name, .contact-value { color: white; }
-  .stat-card, .table-card { background: #1e293b; border-color: #334155; }
-  .data-table th { background: #1e293b; border-color: #334155; color: #94a3b8; }
-  .data-table td { border-color: #334155; color: #cbd5e1; }
-  .filter-btn { background: #1e293b; border-color: #334155; color: #94a3b8; }
+/* Settings */
+.settings-card { background: white; border-radius: 12px; padding: 2rem; border: 1px solid #e5e7eb; max-width: 500px; }
+.settings-form { display: flex; flex-direction: column; gap: 1.25rem; }
+.settings-form .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+.settings-form label { font-size: 0.85rem; font-weight: 600; color: #374151; }
+.settings-form input,
+.settings-form select { padding: 0.6rem 0.75rem; border: 1px solid #d1d5db; border-radius: 8px; font-size: 0.9rem; font-family: inherit; }
+.settings-form input:focus,
+.settings-form select:focus { outline: none; border-color: #4f46e5; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .crm { flex-direction: column; }
+  .sidebar { width: 100%; padding: 1rem; }
+  .sidebar-nav { flex-direction: row; overflow-x: auto; }
+  .crm-main { padding: 1rem; }
+  .deals-board { grid-template-columns: 1fr; }
+  .crm-header { flex-direction: column; gap: 1rem; align-items: flex-start; }
+  .search-input { width: 100%; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
 }

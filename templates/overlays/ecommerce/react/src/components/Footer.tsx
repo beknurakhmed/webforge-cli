@@ -3,7 +3,7 @@ export function Footer() {
     <footer className="store-footer">
       <div className="footer-content">
         <div className="footer-brand">
-          <h3>{{projectName}}</h3>
+          <h3>🛍️ {'{{projectName}}'}</h3>
           <p>Your one-stop shop for quality products.</p>
         </div>
         <div className="footer-links">
@@ -22,7 +22,7 @@ export function Footer() {
         </div>
       </div>
       <div className="footer-bottom">
-        <p>&copy; 2025 {{projectName}}. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} {'{{projectName}}'}. All rights reserved.</p>
       </div>
     </footer>
   );

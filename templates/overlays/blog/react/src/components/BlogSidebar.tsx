@@ -1,17 +1,16 @@
-const categories = ['Tutorial', 'TypeScript', 'CSS', 'Accessibility', 'Architecture', 'JavaScript', 'React'];
+import { Link } from 'react-router-dom';
+import { categories } from '../data/posts';
 
-export function BlogSidebar() {
+function BlogSidebar() {
   return (
     <aside className="blog-sidebar">
       <div className="sidebar-section">
-        <h3>About</h3>
-        <p>A blog about modern web development, best practices, and software engineering.</p>
-      </div>
-      <div className="sidebar-section">
         <h3>Categories</h3>
         <div className="category-list">
-          {categories.map((cat, i) => (
-            <a key={i} href="#" className="category-tag">{cat}</a>
+          {categories.map((cat) => (
+            <Link key={cat} to={`/category/${cat.toLowerCase()}`} className="category-tag">
+              {cat}
+            </Link>
           ))}
         </div>
       </div>
@@ -24,3 +23,5 @@ export function BlogSidebar() {
     </aside>
   );
 }
+
+export default BlogSidebar;

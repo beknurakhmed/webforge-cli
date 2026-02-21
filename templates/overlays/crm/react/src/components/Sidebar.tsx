@@ -1,25 +1,31 @@
-const menuItems = [
-  { icon: '👥', label: 'Contacts', active: true },
-  { icon: '🏢', label: 'Companies', active: false },
-  { icon: '💰', label: 'Deals', active: false },
-  { icon: '📧', label: 'Emails', active: false },
-  { icon: '📅', label: 'Calendar', active: false },
-  { icon: '📊', label: 'Reports', active: false },
-  { icon: '⚙️', label: 'Settings', active: false },
+import { NavLink } from 'react-router-dom';
+
+const navItems = [
+  { to: '/', label: 'Dashboard', icon: '📊' },
+  { to: '/contacts', label: 'Contacts', icon: '👤' },
+  { to: '/deals', label: 'Deals', icon: '💼' },
+  { to: '/settings', label: 'Settings', icon: '⚙️' },
 ];
 
-export function Sidebar() {
+function Sidebar() {
   return (
     <aside className="sidebar">
-      <div className="sidebar-logo">{{projectName}}</div>
+      <div className="sidebar-logo">{'{{projectName}}'}</div>
       <nav className="sidebar-nav">
-        {menuItems.map((item, i) => (
-          <a key={i} href="#" className={`sidebar-item ${item.active ? 'active' : ''}`}>
-            <span>{item.icon}</span>
+        {navItems.map((item) => (
+          <NavLink
+            key={item.to}
+            to={item.to}
+            end={item.to === '/'}
+            className={({ isActive }) => `sidebar-link ${isActive ? 'active' : ''}`}
+          >
+            <span className="sidebar-icon">{item.icon}</span>
             {item.label}
-          </a>
+          </NavLink>
         ))}
       </nav>
     </aside>
   );
 }
+
+export default Sidebar;

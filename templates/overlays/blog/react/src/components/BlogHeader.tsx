@@ -1,15 +1,21 @@
-export function BlogHeader() {
+import { NavLink } from 'react-router-dom';
+
+function BlogHeader() {
   return (
     <header className="blog-header">
       <div className="header-content">
-        <h1 className="blog-title">{{projectName}}</h1>
+        <NavLink to="/" className="blog-title">{'{{projectName}}'}</NavLink>
         <nav className="blog-nav">
-          <a href="#" className="active">Home</a>
-          <a href="#">Articles</a>
-          <a href="#">Categories</a>
-          <a href="#">About</a>
+          <NavLink to="/" end className={({ isActive }) => isActive ? 'active' : ''}>
+            Home
+          </NavLink>
+          <NavLink to="/about" className={({ isActive }) => isActive ? 'active' : ''}>
+            About
+          </NavLink>
         </nav>
       </div>
     </header>
   );
 }
+
+export default BlogHeader;

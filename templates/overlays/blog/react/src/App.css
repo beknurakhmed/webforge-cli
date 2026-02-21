@@ -1,41 +1,81 @@
+/* Blog Layout */
 .blog { min-height: 100vh; display: flex; flex-direction: column; }
+.blog-main { flex: 1; max-width: 1100px; margin: 0 auto; padding: 2rem; width: 100%; box-sizing: border-box; }
 
+/* Header */
 .blog-header { border-bottom: 1px solid #e5e7eb; }
-.blog-header .header-content { max-width: 1100px; margin: 0 auto; padding: 1.25rem 2rem; display: flex; justify-content: space-between; align-items: center; }
-.blog-title { font-size: 1.5rem; color: #111827; margin: 0; }
+.header-content { max-width: 1100px; margin: 0 auto; padding: 1.25rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+.blog-title { font-size: 1.5rem; font-weight: 700; color: #111827; margin: 0; text-decoration: none; }
 .blog-nav { display: flex; gap: 1.5rem; }
-.blog-nav a { text-decoration: none; color: #6b7280; font-weight: 500; }
-.blog-nav a:hover, .blog-nav a.active { color: #4f46e5; }
+.blog-nav a { text-decoration: none; color: #6b7280; font-weight: 500; transition: color 0.15s; }
+.blog-nav a:hover,
+.blog-nav a.active { color: #4f46e5; }
 
-.blog-layout { max-width: 1100px; margin: 0 auto; padding: 2rem; display: grid; grid-template-columns: 1fr 300px; gap: 3rem; flex: 1; }
+/* Blog Layout Grid */
+.blog-layout { display: grid; grid-template-columns: 1fr 300px; gap: 3rem; }
 
+/* Post Cards */
+.post-list { display: flex; flex-direction: column; }
 .post-card { display: flex; gap: 1.5rem; padding: 1.5rem 0; border-bottom: 1px solid #f3f4f6; }
 .post-image { font-size: 3rem; width: 80px; text-align: center; flex-shrink: 0; }
-.post-category { font-size: 0.75rem; color: #4f46e5; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+.post-body { flex: 1; }
+.post-category { font-size: 0.75rem; color: #4f46e5; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; text-decoration: none; }
+.post-category:hover { color: #4338ca; }
+.post-title-link { text-decoration: none; }
 .post-title { font-size: 1.25rem; font-weight: 700; color: #111827; margin: 0.25rem 0 0.5rem; }
+.post-title-link:hover .post-title { color: #4f46e5; }
 .post-excerpt { color: #6b7280; line-height: 1.6; margin-bottom: 0.75rem; }
 .post-meta { display: flex; gap: 1rem; font-size: 0.8rem; color: #9ca3af; }
 
+/* Sidebar */
 .blog-sidebar { display: flex; flex-direction: column; gap: 2rem; }
 .sidebar-section { background: #f9fafb; padding: 1.5rem; border-radius: 12px; }
 .sidebar-section h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.75rem; color: #111827; }
 .sidebar-section p { color: #6b7280; font-size: 0.9rem; line-height: 1.5; margin-bottom: 0.75rem; }
 .category-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-.category-tag { background: white; border: 1px solid #e5e7eb; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; color: #374151; text-decoration: none; }
+.category-tag { background: white; border: 1px solid #e5e7eb; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; color: #374151; text-decoration: none; transition: all 0.15s; }
 .category-tag:hover { border-color: #4f46e5; color: #4f46e5; }
-.newsletter-input { width: 100%; padding: 0.5rem 0.75rem; border: 1px solid #d1d5db; border-radius: 6px; font-size: 0.9rem; margin-bottom: 0.5rem; }
+.newsletter-input { width: 100%; padding: 0.5rem 0.75rem; border: 1px solid #d1d5db; border-radius: 6px; font-size: 0.9rem; margin-bottom: 0.5rem; box-sizing: border-box; }
 .newsletter-btn { width: 100%; background: #4f46e5; color: white; border: none; padding: 0.5rem; border-radius: 6px; cursor: pointer; font-weight: 600; }
+.newsletter-btn:hover { background: #4338ca; }
 
+/* Post Detail */
+.post-detail { max-width: 720px; margin: 0 auto; }
+.back-link { display: inline-block; color: #4f46e5; text-decoration: none; font-size: 0.9rem; margin-bottom: 1.5rem; }
+.back-link:hover { text-decoration: underline; }
+.post-detail-image { font-size: 4rem; display: block; margin-bottom: 1rem; }
+.post-detail-title { font-size: 2rem; font-weight: 800; color: #111827; margin: 0.5rem 0 1rem; }
+.post-detail-content { color: #374151; line-height: 1.8; font-size: 1.05rem; margin: 2rem 0; }
+.author-bio { background: #f9fafb; border-radius: 12px; padding: 1.5rem; margin-top: 2rem; }
+.author-bio h3 { font-size: 1rem; color: #111827; margin-bottom: 0.5rem; }
+.author-bio p { color: #6b7280; line-height: 1.6; }
+
+/* Category Page */
+.category-page { max-width: 720px; margin: 0 auto; }
+.category-heading { font-size: 1.75rem; font-weight: 700; color: #111827; margin-bottom: 1.5rem; }
+.no-posts { color: #6b7280; }
+
+/* About Page */
+.about-page { max-width: 720px; margin: 0 auto; }
+.about-title { font-size: 2rem; font-weight: 800; color: #111827; margin-bottom: 1rem; }
+.about-description { color: #374151; line-height: 1.7; font-size: 1.05rem; margin-bottom: 2rem; }
+.author-card { display: flex; gap: 1.5rem; background: #f9fafb; border-radius: 12px; padding: 2rem; margin-bottom: 2rem; }
+.author-avatar { font-size: 3rem; }
+.author-info h2 { font-size: 1.25rem; color: #111827; margin: 0 0 0.25rem; }
+.author-role { color: #4f46e5; font-weight: 600; margin-bottom: 0.5rem; }
+.author-info p { color: #6b7280; line-height: 1.6; }
+.contact-info-section h2 { font-size: 1.25rem; color: #111827; margin-bottom: 0.5rem; }
+.contact-info-section p { color: #6b7280; margin-bottom: 1rem; }
+.contact-links { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.5rem; color: #374151; }
+
+/* Footer */
 .blog-footer { border-top: 1px solid #e5e7eb; padding: 2rem; text-align: center; color: #9ca3af; font-size: 0.875rem; }
 
-@media (max-width: 768px) { .blog-layout { grid-template-columns: 1fr; } .post-card { flex-direction: column; } }
-
-@media (prefers-color-scheme: dark) {
-  .blog-header { border-color: #374151; }
-  .blog-title, .post-title, .sidebar-section h3 { color: white; }
-  .post-card { border-color: #374151; }
-  .sidebar-section { background: #1f2937; }
-  .category-tag { background: #1f2937; border-color: #374151; color: #d1d5db; }
-  .newsletter-input { background: #1f2937; border-color: #374151; color: white; }
-  .blog-footer { border-color: #374151; }
+/* Responsive */
+@media (max-width: 768px) {
+  .blog-layout { grid-template-columns: 1fr; }
+  .post-card { flex-direction: column; }
+  .header-content { flex-direction: column; gap: 0.75rem; }
+  .author-card { flex-direction: column; text-align: center; }
+  .post-detail-title { font-size: 1.5rem; }
 }
