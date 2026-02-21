@@ -1,0 +1,70 @@
+.landing { min-height: 100vh; }
+
+/* Nav */
+.nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; max-width: 1200px; margin: 0 auto; }
+.logo { font-size: 1.5rem; font-weight: 700; color: #4f46e5; }
+.nav-links { display: flex; gap: 2rem; }
+.nav-links a { color: #374151; text-decoration: none; font-weight: 500; transition: color 0.2s; }
+.nav-links a:hover { color: #4f46e5; }
+
+/* Hero */
+.hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding-bottom: 4rem; }
+.hero .logo { color: white; }
+.hero .nav-links a { color: rgba(255,255,255,0.9); }
+.hero-content { text-align: center; padding: 4rem 2rem; max-width: 800px; margin: 0 auto; }
+.hero-content h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 1.5rem; line-height: 1.1; }
+.hero-content p { font-size: 1.25rem; opacity: 0.9; margin-bottom: 2rem; line-height: 1.6; }
+.hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+/* Buttons */
+.btn { padding: 0.75rem 1.5rem; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.2s; border: 2px solid transparent; }
+.btn-primary { background: #4f46e5; color: white; border-color: #4f46e5; }
+.btn-primary:hover { background: #4338ca; border-color: #4338ca; }
+.btn-secondary { background: transparent; color: white; border-color: rgba(255,255,255,0.5); }
+.btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: white; }
+.btn-large { padding: 1rem 2.5rem; font-size: 1.1rem; }
+
+/* Features */
+.features { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; text-align: center; }
+.features h2 { font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; color: #111827; }
+.features-subtitle { color: #6b7280; font-size: 1.1rem; margin-bottom: 3rem; }
+.feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; text-align: left; }
+.feature-card { padding: 2rem; border-radius: 12px; border: 1px solid #e5e7eb; transition: all 0.2s; }
+.feature-card:hover { box-shadow: 0 10px 25px rgba(0,0,0,0.08); transform: translateY(-2px); }
+.feature-icon { font-size: 2rem; display: block; margin-bottom: 1rem; }
+.feature-card h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem; color: #111827; }
+.feature-card p { color: #6b7280; line-height: 1.6; }
+
+/* CTA */
+.cta { background: #f9fafb; padding: 5rem 2rem; text-align: center; }
+.cta-content { max-width: 600px; margin: 0 auto; }
+.cta h2 { font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem; color: #111827; }
+.cta p { color: #6b7280; font-size: 1.1rem; margin-bottom: 2rem; }
+.cta-note { margin-top: 0.75rem; font-size: 0.875rem; color: #9ca3af; }
+
+/* Footer */
+.footer { background: #111827; color: #d1d5db; padding: 4rem 2rem 2rem; }
+.footer-content { display: flex; justify-content: space-between; max-width: 1200px; margin: 0 auto; gap: 4rem; flex-wrap: wrap; }
+.footer-brand h3 { color: white; font-size: 1.5rem; margin-bottom: 0.5rem; }
+.footer-brand p { max-width: 300px; line-height: 1.6; }
+.footer-links { display: flex; gap: 4rem; flex-wrap: wrap; }
+.footer-col { display: flex; flex-direction: column; gap: 0.5rem; }
+.footer-col h4 { color: white; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+.footer-col a { color: #9ca3af; text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+.footer-col a:hover { color: white; }
+.footer-bottom { border-top: 1px solid #374151; margin-top: 3rem; padding-top: 1.5rem; text-align: center; max-width: 1200px; margin-left: auto; margin-right: auto; }
+.footer-bottom p { font-size: 0.875rem; color: #6b7280; }
+
+@media (max-width: 768px) {
+  .hero-content h1 { font-size: 2.5rem; }
+  .nav { flex-direction: column; gap: 1rem; }
+  .footer-content { flex-direction: column; }
+}
+
+@media (prefers-color-scheme: dark) {
+  .features h2, .feature-card h3, .cta h2 { color: rgba(255,255,255,0.87); }
+  .features-subtitle, .feature-card p, .cta p { color: #9ca3af; }
+  .feature-card { border-color: #374151; }
+  .cta { background: #1f2937; }
+  .nav-links a { color: #d1d5db; }
+}

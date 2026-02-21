@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@chakra-ui/react": "^3.3.0"
+  }
+}

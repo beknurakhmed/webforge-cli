@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(\"C:/Users/Victus/Desktop/webforge-cli/templates/vue/vite.config.ts\":*)",
+      "Bash(\"C:/Users/Victus/Desktop/webforge-cli/templates/vue/index.html\":*)"
+    ]
+  }
+}

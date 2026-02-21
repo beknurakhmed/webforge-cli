@@ -1,0 +1,63 @@
+{
+  "name": "webforge-cli",
+  "version": "0.1.0",
+  "description": "Interactive CLI to generate website project templates — landing pages, e-commerce, CRM, dashboards, blogs, portfolios with React, Vue, Angular, Next.js, Nuxt and more",
+  "type": "module",
+  "bin": {
+    "webforge-cli": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "templates"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "start": "node dist/index.js",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "cli",
+    "scaffold",
+    "template",
+    "generator",
+    "react",
+    "vue",
+    "angular",
+    "nextjs",
+    "nuxt",
+    "vite",
+    "tailwind",
+    "landing-page",
+    "ecommerce",
+    "dashboard",
+    "crm",
+    "blog",
+    "portfolio"
+  ],
+  "author": "Beknur <https://github.com/beknurakhmed>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beknurakhmed/webforge-cli.git"
+  },
+  "homepage": "https://github.com/beknurakhmed/webforge-cli#readme",
+  "bugs": {
+    "url": "https://github.com/beknurakhmed/webforge-cli/issues"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "@clack/prompts": "^1.0.1",
+    "fs-extra": "^11.3.3",
+    "picocolors": "^1.1.1"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^25.3.0",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3"
+  }
+}
