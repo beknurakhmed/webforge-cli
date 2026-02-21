@@ -1,25 +1,26 @@
+import { NavLink } from 'react-router-dom';
+import { CartItem } from '../data/products';
+
 interface HeaderProps {
-  cartCount: number;
-  onCartClick: () => void;
+  cart: CartItem[];
 }
 
-export function Header({ cartCount, onCartClick }: HeaderProps) {
+export function Header({ cart }: HeaderProps) {
+  const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+
   return (
     <header className="store-header">
       <div className="header-content">
-        <h1 className="store-logo">{{projectName}}</h1>
+        <NavLink to="/" className="store-logo">🛍️ {'{{projectName}}'}</NavLink>
         <nav className="store-nav">
-          <a href="#" className="active">All Products</a>
-          <a href="#">Electronics</a>
-          <a href="#">Accessories</a>
-          <a href="#">Home</a>
+          <NavLink to="/" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'} end>
+            Home
+          </NavLink>
+          <NavLink to="/cart" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
+            🛒 Cart
+            {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
+          </NavLink>
         </nav>
-        <div className="header-actions">
-          <input type="text" className="search-input" placeholder="Search products..." />
-          <button className="cart-btn" onClick={onCartClick}>
-            Cart ({cartCount})
-          </button>
-        </div>
       </div>
     </header>
   );

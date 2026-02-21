@@ -1,17 +1,13 @@
-import type { Contact } from '../App';
+import { contacts } from '../data/contacts';
 
-interface StatsCardsProps {
-  contacts: Contact[];
-}
+const stats = [
+  { label: 'Total Contacts', value: contacts.length, color: '#4f46e5' },
+  { label: 'Leads', value: contacts.filter((c) => c.status === 'Lead').length, color: '#f59e0b' },
+  { label: 'Customers', value: contacts.filter((c) => c.status === 'Customer').length, color: '#10b981' },
+  { label: 'Churned', value: contacts.filter((c) => c.status === 'Churned').length, color: '#ef4444' },
+];
 
-export function StatsCards({ contacts }: StatsCardsProps) {
-  const stats = [
-    { label: 'Total Contacts', value: contacts.length, color: '#4f46e5' },
-    { label: 'Leads', value: contacts.filter((c) => c.status === 'Lead').length, color: '#f59e0b' },
-    { label: 'Customers', value: contacts.filter((c) => c.status === 'Customer').length, color: '#10b981' },
-    { label: 'Churned', value: contacts.filter((c) => c.status === 'Churned').length, color: '#ef4444' },
-  ];
-
+function StatsCards() {
   return (
     <div className="stats-grid">
       {stats.map((stat, i) => (
@@ -24,3 +20,5 @@ export function StatsCards({ contacts }: StatsCardsProps) {
     </div>
   );
 }
+
+export default StatsCards;

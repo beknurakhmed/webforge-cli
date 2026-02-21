@@ -1,0 +1,404 @@
+/* Portfolio Global Styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #374151;
+  background: #f9fafb;
+  line-height: 1.6;
+}
+
+a {
+  color: #4f46e5;
+  text-decoration: none;
+}
+
+/* Navbar */
+.portfolio-nav-wrap {
+  background: #111827;
+}
+
+.portfolio-nav {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+}
+
+.portfolio-nav .logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+}
+
+.portfolio-nav nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.portfolio-nav nav a {
+  color: #9ca3af;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.portfolio-nav nav a:hover,
+.portfolio-nav nav a.router-link-exact-active {
+  color: #fff;
+}
+
+/* Hero */
+.hero {
+  background: #111827;
+  color: #fff;
+  text-align: center;
+  padding: 4rem 1.5rem 3rem;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+}
+
+.hero h1 span {
+  color: #4f46e5;
+}
+
+.hero p {
+  font-size: 1.15rem;
+  color: #9ca3af;
+  max-width: 560px;
+  margin: 0 auto 1.5rem;
+}
+
+.hero .hero-cta {
+  display: inline-block;
+  background: #4f46e5;
+  color: #fff;
+  padding: 0.7rem 1.75rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.hero .hero-cta:hover {
+  background: #4338ca;
+}
+
+/* Section */
+.section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Project Cards */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.project-card {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.project-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+.project-card .card-image {
+  background: #eef2ff;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.5rem;
+}
+
+.project-card .card-body {
+  padding: 1.25rem;
+}
+
+.project-card .card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 0.4rem;
+}
+
+.project-card .card-desc {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+}
+
+.project-card .card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.project-card .card-tags span {
+  background: #eef2ff;
+  color: #4f46e5;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+}
+
+/* Filter Buttons */
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.filter-btn {
+  padding: 0.4rem 1rem;
+  border: 1px solid #d1d5db;
+  background: #fff;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  color: #6b7280;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-btn:hover {
+  border-color: #4f46e5;
+  color: #4f46e5;
+}
+
+.filter-btn.active {
+  background: #4f46e5;
+  color: #fff;
+  border-color: #4f46e5;
+}
+
+/* Skills Grid */
+.skills-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.skill-group {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1.25rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.skill-group h3 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #4f46e5;
+  margin-bottom: 0.75rem;
+}
+
+.skill-group .skill-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.skill-group .skill-items span {
+  background: #f3f4f6;
+  color: #374151;
+  font-size: 0.85rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
+}
+
+/* About Page */
+.about-section {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+.about-section .about-avatar {
+  font-size: 5rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.about-section h1 {
+  text-align: center;
+  font-size: 1.75rem;
+  color: #111827;
+  margin-bottom: 0.25rem;
+}
+
+.about-section .about-role {
+  text-align: center;
+  color: #6b7280;
+  margin-bottom: 1.5rem;
+}
+
+.about-section .about-bio {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #374151;
+  margin-bottom: 2rem;
+}
+
+.about-section .experience-item {
+  background: #fff;
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  margin-bottom: 0.75rem;
+}
+
+.about-section .experience-item h3 {
+  font-size: 1rem;
+  color: #111827;
+}
+
+.about-section .experience-item p {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+/* Contact Form */
+.contact-section {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+.contact-section h1 {
+  font-size: 1.75rem;
+  color: #111827;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.contact-section .contact-subtitle {
+  text-align: center;
+  color: #6b7280;
+  margin-bottom: 2rem;
+}
+
+.contact-form {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.contact-form .form-group {
+  margin-bottom: 1.25rem;
+}
+
+.contact-form label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.4rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #4f46e5;
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.contact-form .btn-primary {
+  width: 100%;
+  background: #4f46e5;
+  color: #fff;
+  border: none;
+  padding: 0.7rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.contact-form .btn-primary:hover {
+  background: #4338ca;
+}
+
+/* Footer */
+.portfolio-footer {
+  background: #111827;
+  color: #9ca3af;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  margin-top: auto;
+}
+
+.portfolio-footer .social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.portfolio-footer .social-links a {
+  color: #9ca3af;
+  font-size: 1.25rem;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.portfolio-footer .social-links a:hover {
+  color: #fff;
+}
+
+.portfolio-footer .copyright {
+  font-size: 0.85rem;
+}

@@ -1,4 +1,12 @@
-const rows = [
+interface Order {
+  id: string;
+  customer: string;
+  email: string;
+  amount: string;
+  status: 'Completed' | 'Processing' | 'Cancelled';
+}
+
+const rows: Order[] = [
   { id: '#3210', customer: 'Olivia Martin', email: 'olivia@email.com', amount: '$42.00', status: 'Completed' },
   { id: '#3209', customer: 'Ava Johnson', email: 'ava@email.com', amount: '$74.99', status: 'Processing' },
   { id: '#3208', customer: 'Michael Brown', email: 'michael@email.com', amount: '$64.00', status: 'Completed' },
