@@ -1,24 +1,28 @@
-# webforge-cli
+# @beknurakhmed/webforge-cli
+
+[![npm version](https://img.shields.io/npm/v/@beknurakhmed/webforge-cli.svg)](https://www.npmjs.com/package/@beknurakhmed/webforge-cli)
+[![license](https://img.shields.io/npm/l/@beknurakhmed/webforge-cli.svg)](https://github.com/beknurakhmed/webforge-cli/blob/main/LICENSE)
+[![node](https://img.shields.io/node/v/@beknurakhmed/webforge-cli.svg)](https://nodejs.org)
 
 Interactive CLI to generate production-ready website project templates. Pick your template, framework, styling, state management, and coding paradigm — get a fully configured project in seconds.
 
 ## Quick Start
 
 ```bash
-npx webforge-cli
+npx @beknurakhmed/webforge-cli
 ```
 
 Or install globally:
 
 ```bash
-npm install -g webforge-cli
+npm install -g @beknurakhmed/webforge-cli
 webforge-cli
 ```
 
 You can also pass the project name directly:
 
 ```bash
-npx webforge-cli my-app
+npx @beknurakhmed/webforge-cli my-app
 ```
 
 ## How It Works
@@ -26,21 +30,24 @@ npx webforge-cli my-app
 The CLI walks you through an interactive wizard:
 
 ```
-1. Project name         →  my-awesome-app
-2. Template type        →  Landing Page / E-commerce / CRM / Dashboard / Blog / Portfolio
-3. Framework            →  React / Vue / Angular / Vanilla / Next.js / Nuxt
-4. Coding paradigm      →  Functional / SOLID OOP
-5. Styling solution     →  Tailwind CSS / SCSS / CSS Modules / Material UI / ...
-6. State management     →  Redux / Zustand / MobX / Pinia / NgRx / RxJS / None
-7. Extra tools          →  TypeScript / ESLint / Prettier
-```
-
-After you answer, webforge generates a ready-to-run project:
-
-```bash
-cd my-awesome-app
-npm install
-npm run dev
+┌  webforge-cli  — project template generator
+│
+◆  Project name:         →  my-awesome-app
+◆  Select a template:    →  Landing Page / E-commerce / CRM / Dashboard / Blog / Portfolio
+◆  Select a framework:   →  React / Vue / Angular / Vanilla / Next.js / Nuxt
+◆  Coding paradigm:      →  Functional / SOLID OOP
+◆  Styling solution:     →  Tailwind CSS / SCSS / CSS Modules / Material UI / ...
+◆  State management:     →  Redux / Zustand / MobX / Pinia / NgRx / RxJS / None
+◆  Extra tools:          →  TypeScript / ESLint / Prettier
+│
+◇  Project generated successfully!
+│
+│  Next steps:
+│  cd my-awesome-app
+│  npm install
+│  npm run dev
+│
+└  Happy coding!
 ```
 
 ## Template Types
@@ -101,7 +108,7 @@ Choose between two coding styles for your generated project:
 ### React + Landing Page + Tailwind
 
 ```bash
-npx webforge-cli
+npx @beknurakhmed/webforge-cli
 # → my-landing
 # → Landing Page
 # → React
@@ -114,7 +121,7 @@ npx webforge-cli
 ### Vue + E-commerce + SCSS + Pinia
 
 ```bash
-npx webforge-cli
+npx @beknurakhmed/webforge-cli
 # → my-store
 # → E-commerce
 # → Vue
@@ -127,7 +134,7 @@ npx webforge-cli
 ### Angular + Dashboard + Angular Material + NgRx
 
 ```bash
-npx webforge-cli
+npx @beknurakhmed/webforge-cli
 # → admin-panel
 # → Dashboard
 # → Angular
@@ -205,8 +212,15 @@ node dist/index.js
 
 ## Contributing
 
-Contributions are welcome! Feel free to open issues or submit pull requests at [github.com/beknurakhmed/webforge-cli](https://github.com/beknurakhmed/webforge-cli).
+Contributions are welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for Git Flow branching strategy and guidelines.
+
+## Author
+
+**Beknur** — Frontend Developer & Software Engineer
+
+- GitHub: [@beknurakhmed](https://github.com/beknurakhmed)
+- npm: [@beknurakhmed](https://www.npmjs.com/~beknurakhmed)
 
 ## License
 
-MIT - [Beknur](https://github.com/beknurakhmed)
+MIT
