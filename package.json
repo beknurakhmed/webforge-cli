@@ -1,6 +1,6 @@
 {
   "name": "@beknurakhmed/webforge-cli",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Interactive CLI to generate website project templates — landing pages, e-commerce, CRM, dashboards, blogs, portfolios with React, Vue, Angular, Next.js, Nuxt and more",
   "type": "module",
   "bin": {
