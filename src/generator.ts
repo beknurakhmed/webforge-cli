@@ -40,6 +40,14 @@ export async function generateProject(config: ProjectConfig): Promise<void> {
     );
   }
 
+  // Layer 4.5: Template-specific styling overlay (e.g. Tailwind versions of components)
+  if (styling) {
+    const stylingTemplateDir = path.join(TEMPLATES_DIR, 'styling', styling, 'overlays', templateType, framework);
+    if (await fs.pathExists(stylingTemplateDir)) {
+      await copyTemplateDir(stylingTemplateDir, targetDir, { projectName });
+    }
+  }
+
   // Layer 5: State management overlay
   if (stateManagement && stateManagement !== 'none') {
     await applyOverlayWithDeps(
