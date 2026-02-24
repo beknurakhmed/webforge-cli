@@ -9,7 +9,7 @@ const __dirname = path.dirname(__filename);
 const TEMPLATES_DIR = path.resolve(__dirname, '..', 'templates');
 
 export async function generateProject(config: ProjectConfig): Promise<void> {
-  const { targetDir, framework, templateType, paradigm, styling, stateManagement, extras, projectName } = config;
+  const { targetDir, framework, templateType, paradigm, styling, stateManagement, routing, i18n, theme, angularMode, extras, projectName } = config;
 
   await fs.ensureDir(targetDir);
 
@@ -57,7 +57,53 @@ export async function generateProject(config: ProjectConfig): Promise<void> {
     );
   }
 
-  // Layer 6: Extras
+  // Layer 5.5: Routing overlay (only for landing — other templates have built-in routing)
+  if (routing && templateType === 'landing') {
+    await applyOverlayWithDeps(
+      path.join(TEMPLATES_DIR, 'routing'),
+      targetDir,
+      config
+    );
+  }
+
+  // Layer 5.6: Angular NgModules conversion
+  if (framework === 'angular' && angularMode === 'modules') {
+    // Shared: main.ts with platformBrowserDynamic
+    const sharedDir = path.join(TEMPLATES_DIR, 'angular-mode', 'modules', 'angular');
+    if (await fs.pathExists(sharedDir)) {
+      await copyTemplateDir(sharedDir, targetDir, { projectName });
+    }
+
+    // Template-specific NgModules files (app.module.ts + non-standalone app.component.ts)
+    let overlayName: string = templateType;
+    if (templateType === 'landing' && routing) {
+      overlayName = 'landing-routing';
+    }
+    const ngModulesDir = path.join(TEMPLATES_DIR, 'angular-mode', 'modules', 'overlays', overlayName);
+    if (await fs.pathExists(ngModulesDir)) {
+      await copyTemplateDir(ngModulesDir, targetDir, { projectName });
+    }
+  }
+
+  // Layer 6: i18n overlay
+  if (i18n) {
+    await applyOverlayWithDeps(
+      path.join(TEMPLATES_DIR, 'i18n'),
+      targetDir,
+      config
+    );
+  }
+
+  // Layer 6.5: Theme overlay
+  if (theme) {
+    await applyOverlayWithDeps(
+      path.join(TEMPLATES_DIR, 'theme', theme),
+      targetDir,
+      config
+    );
+  }
+
+  // Layer 7: Extras
   for (const extra of extras) {
     await applyOverlayWithDeps(
       path.join(TEMPLATES_DIR, 'extras', extra),

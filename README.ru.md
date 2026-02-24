@@ -18,7 +18,7 @@
 
 <br />
 
-Выберите шаблон, фреймворк, стилизацию, стейт-менеджмент и парадигму — получите полностью настроенный многостраничный SPA с роутингом, лэйаутами и реалистичным демо-контентом.
+Выберите шаблон, фреймворк, стилизацию, стейт-менеджмент, парадигму, роутинг, i18n и тему — получите полностью настроенный многостраничный SPA с лэйаутами, переключателем тем, переключателем языков и реалистичным демо-контентом.
 
 </div>
 
@@ -48,6 +48,9 @@ webforge-cli my-app
 ◆  Парадигма            →  Функциональная
 ◆  Стилизация           →  Tailwind CSS
 ◆  Стейт-менеджмент     →  Zustand
+◆  Роутинг              →  Да
+◆  Интернационализация  →  Да (EN / RU / UZ)
+◆  Тема                 →  Тёмная
 ◆  Доп. инструменты     →  TypeScript, ESLint, Prettier
 │
 ◇  Проект создан успешно!
@@ -113,42 +116,73 @@ webforge-cli my-app
 - **Функциональная** — хуки, composables, чистые функции, сигналы
 - **SOLID ООП** — классы, сервисы, инъекция зависимостей, паттерны ООП
 
+## Роутинг
+
+Все фреймворки поддерживают опциональный многостраничный роутинг с лэйаутами и навигацией:
+
+| Фреймворк | Роутер | Паттерн |
+|-----------|--------|---------|
+| **React** | react-router-dom v7 | BrowserRouter + Layout с Outlet |
+| **Vue** | vue-router v4 | createRouter + RouterView |
+| **Angular** | @angular/router | provideRouter + router-outlet |
+| **Vanilla** | Кастомный hash router | ~30 строк hash-роутер |
+| **Next.js** | App Router | Файловый роутинг (встроенный) |
+| **Nuxt** | Nuxt Router | Файловый роутинг (встроенный) |
+
+## Интернационализация (i18n)
+
+Встроенный переключатель языков с переводами EN / RU / UZ и сохранением в localStorage. Каждый фреймворк получает идиоматичную реализацию — React хук, Vue composable, Angular сервис и т.д.
+
+## Тема
+
+Выберите **Светлую** или **Тёмную** тему по умолчанию. Включает компонент-переключатель и CSS-переменные для плавного переключения. Выбор темы сохраняется в localStorage.
+
+## Режим Angular
+
+При выборе Angular доступны два варианта:
+- **Standalone** (по умолчанию) — современные standalone-компоненты
+- **NgModules** — традиционная модульная архитектура
+
 ## Архитектура
 
 webforge-cli использует **слоистую систему оверлеев**:
 
 ```
-Слой 1  База фреймворка       (React / Vue / Angular / ...)
-Слой 2  Оверлей шаблона       (Landing / E-commerce / CRM / ...)
-Слой 3  Вариант парадигмы     (Функциональная / ООП)
-Слой 4  Конфиг стилизации     (Tailwind / SCSS / MUI / ...)
-Слой 5  Стилизованные компоненты (Компоненты под выбранный стиль)
-Слой 6  Стейт-менеджмент      (Redux / Zustand / Pinia / ...)
-Слой 7  Доп. инструменты      (TypeScript / ESLint / Prettier)
+Слой 1    База фреймворка        (React / Vue / Angular / ...)
+Слой 1.5  Режим Angular          (Standalone / NgModules)
+Слой 2    Оверлей шаблона        (Landing / E-commerce / CRM / ...)
+Слой 3    Вариант парадигмы      (Функциональная / ООП)
+Слой 4    Конфиг стилизации      (Tailwind / SCSS / MUI / ...)
+Слой 5    Стилизованные компоненты (Компоненты под выбранный стиль)
+Слой 6    Стейт-менеджмент       (Redux / Zustand / Pinia / ...)
+Слой 7    Роутинг                (Роутер + страницы под фреймворк)
+Слой 8    Интернационализация    (i18n сервис + переключатель языков)
+Слой 9    Тема                   (CSS-переменные + переключатель тем)
+Слой 10   Доп. инструменты       (TypeScript / ESLint / Prettier)
 ```
 
 Каждый слой накладывает файлы поверх предыдущего. Зависимости автоматически мержатся в `package.json`.
 
-**Всего комбинаций:** 6 шаблонов x 6 фреймворков x 8 стилей x 7 стейтов x 2 парадигмы = **4 032 уникальных проекта**
+**Всего комбинаций:** 6 шаблонов x 6 фреймворков x 8 стилей x 7 стейтов x 2 парадигмы x 2 роутинг x 2 i18n x 2 темы = **32 000+ уникальных проектов**
 
 ## Примеры
 
 ```bash
-# React + E-commerce + Tailwind + Zustand
+# React + E-commerce + Tailwind + Zustand + Роутинг + i18n + Тёмная тема
 npx @beknurakhmed/webforge-cli
-# → my-store → E-commerce → React → Functional → Tailwind CSS → Zustand
+# → my-store → E-commerce → React → Functional → Tailwind CSS → Zustand → Routing ✓ → i18n ✓ → Dark
 
 # Vue + Dashboard + SCSS + Pinia
 npx @beknurakhmed/webforge-cli
-# → admin → Dashboard → Vue → Functional → SCSS → Pinia
+# → admin → Dashboard → Vue → Functional → SCSS → Pinia → Routing ✓ → i18n ✗ → Light
 
-# Next.js + Blog + Ant Design
+# Next.js + Blog + Ant Design + i18n
 npx @beknurakhmed/webforge-cli
-# → my-blog → Blog → Next.js → Functional → Ant Design → None
+# → my-blog → Blog → Next.js → Functional → Ant Design → None → Routing ✓ → i18n ✓ → Light
 
-# Angular + CRM + Angular Material + NgRx
+# Angular + CRM + NgModules + Angular Material + NgRx
 npx @beknurakhmed/webforge-cli
-# → crm-app → CRM → Angular → SOLID OOP → Angular Material → NgRx
+# → crm-app → CRM → Angular (NgModules) → SOLID OOP → Angular Material → NgRx → Routing ✓ → i18n ✗ → Dark
 ```
 
 ## Требования

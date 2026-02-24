@@ -44,6 +44,19 @@ export const STATE_OPTIONS = [
   { value: 'ngrx' as const, label: 'NgRx', hint: 'Redux-inspired Angular state' },
 ];
 
+export const ANGULAR_MODE_OPTIONS = [
+  { value: 'standalone' as const, label: 'Standalone', hint: 'Modern standalone components (recommended)' },
+  { value: 'modules' as const, label: 'NgModules', hint: 'Traditional module-based architecture' },
+];
+
+export const THEME_OPTIONS = [
+  { value: 'light' as const, label: 'Light', hint: 'Light theme by default' },
+  { value: 'dark' as const, label: 'Dark', hint: 'Dark theme by default' },
+];
+
+// Frameworks that have built-in file-based routing (no need for routing prompt)
+export const BUILTIN_ROUTING_FRAMEWORKS: Framework[] = ['nextjs', 'nuxt'];
+
 export const EXTRAS_OPTIONS = [
   { value: 'typescript' as const, label: 'TypeScript', hint: 'Type-safe JavaScript' },
   { value: 'eslint' as const, label: 'ESLint', hint: 'Code linting' },

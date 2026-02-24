@@ -18,7 +18,7 @@
 
 <br />
 
-Pick a template, framework, styling, state management, and paradigm — get a fully configured multi-page SPA with routing, layouts, and realistic demo content.
+Pick a template, framework, styling, state management, paradigm, routing, i18n, and theme — get a fully configured multi-page SPA with layouts, dark/light theme toggle, language switcher, and realistic demo content.
 
 </div>
 
@@ -48,6 +48,9 @@ webforge-cli my-app
 ◆  Coding paradigm      →  Functional
 ◆  Styling solution     →  Tailwind CSS
 ◆  State management     →  Zustand
+◆  Routing              →  Yes
+◆  Internationalization →  Yes (EN / RU / UZ)
+◆  Theme                →  Dark
 ◆  Extra tools          →  TypeScript, ESLint, Prettier
 │
 ◇  Project generated successfully!
@@ -113,42 +116,73 @@ Every styling option generates **real styled components** — not just dependenc
 - **Functional** — hooks, composables, pure functions, signals
 - **SOLID OOP** — classes, services, dependency injection, OOP patterns
 
+## Routing
+
+All frameworks support optional multi-page routing with layouts and navigation:
+
+| Framework | Router | Pattern |
+|-----------|--------|---------|
+| **React** | react-router-dom v7 | BrowserRouter + Layout with Outlet |
+| **Vue** | vue-router v4 | createRouter + RouterView |
+| **Angular** | @angular/router | provideRouter + router-outlet |
+| **Vanilla** | Custom hash router | ~30 line hash router utility |
+| **Next.js** | App Router | File-based routing (built-in) |
+| **Nuxt** | Nuxt Router | File-based routing (built-in) |
+
+## Internationalization (i18n)
+
+Built-in language switcher with EN / RU / UZ translations and localStorage persistence. Each framework gets an idiomatic implementation — React hook, Vue composable, Angular service, etc.
+
+## Theme
+
+Choose **Light** or **Dark** as the default theme. Includes a toggle component and CSS custom properties for seamless switching. Theme preference is saved to localStorage.
+
+## Angular Mode
+
+When using Angular, choose between:
+- **Standalone** (default) — modern standalone components
+- **NgModules** — traditional module-based architecture
+
 ## Architecture
 
 webforge-cli uses a **layered overlay system**:
 
 ```
-Layer 1  Framework base        (React / Vue / Angular / ...)
-Layer 2  Template overlay      (Landing / E-commerce / CRM / ...)
-Layer 3  Paradigm variant      (Functional / OOP)
-Layer 4  Styling config + deps (Tailwind / SCSS / MUI / ...)
-Layer 5  Styling components    (Template-specific styled components)
-Layer 6  State management      (Redux / Zustand / Pinia / ...)
-Layer 7  Extras                (TypeScript / ESLint / Prettier)
+Layer 1   Framework base        (React / Vue / Angular / ...)
+Layer 1.5 Angular mode          (Standalone / NgModules)
+Layer 2   Template overlay      (Landing / E-commerce / CRM / ...)
+Layer 3   Paradigm variant      (Functional / OOP)
+Layer 4   Styling config + deps (Tailwind / SCSS / MUI / ...)
+Layer 5   Styling components    (Template-specific styled components)
+Layer 6   State management      (Redux / Zustand / Pinia / ...)
+Layer 7   Routing               (Framework-specific router + pages)
+Layer 8   Internationalization  (i18n service + language switcher)
+Layer 9   Theme                 (CSS variables + theme toggle)
+Layer 10  Extras                (TypeScript / ESLint / Prettier)
 ```
 
 Each layer copies files on top of previous ones. Dependencies merge into `package.json` automatically.
 
-**Total combinations:** 6 templates x 6 frameworks x 8 styling x 7 state x 2 paradigms = **4,032 unique projects**
+**Total combinations:** 6 templates x 6 frameworks x 8 styling x 7 state x 2 paradigms x 2 routing x 2 i18n x 2 themes = **32,000+ unique projects**
 
 ## Examples
 
 ```bash
-# React + E-commerce + Tailwind + Zustand
+# React + E-commerce + Tailwind + Zustand + Routing + i18n + Dark theme
 npx @beknurakhmed/webforge-cli
-# → my-store → E-commerce → React → Functional → Tailwind CSS → Zustand
+# → my-store → E-commerce → React → Functional → Tailwind CSS → Zustand → Routing ✓ → i18n ✓ → Dark
 
 # Vue + Dashboard + SCSS + Pinia
 npx @beknurakhmed/webforge-cli
-# → admin → Dashboard → Vue → Functional → SCSS → Pinia
+# → admin → Dashboard → Vue → Functional → SCSS → Pinia → Routing ✓ → i18n ✗ → Light
 
-# Next.js + Blog + Ant Design
+# Next.js + Blog + Ant Design + i18n
 npx @beknurakhmed/webforge-cli
-# → my-blog → Blog → Next.js → Functional → Ant Design → None
+# → my-blog → Blog → Next.js → Functional → Ant Design → None → Routing ✓ → i18n ✓ → Light
 
-# Angular + CRM + Angular Material + NgRx
+# Angular + CRM + NgModules + Angular Material + NgRx
 npx @beknurakhmed/webforge-cli
-# → crm-app → CRM → Angular → SOLID OOP → Angular Material → NgRx
+# → crm-app → CRM → Angular (NgModules) → SOLID OOP → Angular Material → NgRx → Routing ✓ → i18n ✗ → Dark
 ```
 
 ## Requirements
