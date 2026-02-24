@@ -1,0 +1,77 @@
+.tableCard {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+}
+
+.dataTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.dataTable th {
+  text-align: left;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.8rem;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.dataTable td {
+  padding: 0.75rem 1.25rem;
+  border-bottom: 1px solid #f3f4f6;
+  font-size: 0.9rem;
+}
+
+.contactName {
+  font-weight: 600;
+  color: #111827;
+}
+
+.contactEmail {
+  color: #6b7280;
+}
+
+.contactPhone {
+  color: #374151;
+}
+
+.statusLead {
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.statusProspect {
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.statusCustomer {
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.statusChurned {
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: #fee2e2;
+  color: #991b1b;
+}

@@ -1,0 +1,118 @@
+.tableCard {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.tableHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+}
+
+.tableTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.contactCount {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  background: var(--bg);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+}
+
+.tableWrapper {
+  overflow-x: auto;
+}
+
+.dataTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.dataTable th {
+  text-align: left;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.dataTable td {
+  padding: 0.875rem 1.5rem;
+  font-size: 0.9rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.dataTable tbody tr:hover {
+  background: #f9fafb;
+}
+
+.contactCell {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.contactAvatar {
+  font-size: 1.25rem;
+}
+
+.contactName {
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.contactPhone {
+  font-size: 0.75rem;
+  color: var(--text-light);
+}
+
+.contactEmail {
+  color: var(--primary);
+}
+
+.contactValue {
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.statusBadge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.statusCustomer {
+  composes: statusBadge;
+  background: #d1fae5;
+  color: #059669;
+}
+
+.statusProspect {
+  composes: statusBadge;
+  background: #dbeafe;
+  color: #2563eb;
+}
+
+.statusLead {
+  composes: statusBadge;
+  background: #fef3c7;
+  color: #d97706;
+}
+
+.statusInactive {
+  composes: statusBadge;
+  background: #f3f4f6;
+  color: #6b7280;
+}

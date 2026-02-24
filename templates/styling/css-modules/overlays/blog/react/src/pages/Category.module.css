@@ -1,0 +1,32 @@
+.categoryPage {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.backLink {
+  display: inline-block;
+  color: #4f46e5;
+  text-decoration: none;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.backLink:hover {
+  text-decoration: underline;
+}
+
+.categoryHeading {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 1.5rem;
+}
+
+.postList {
+  display: flex;
+  flex-direction: column;
+}
+
+.noPosts {
+  color: #6b7280;
+}

@@ -1,0 +1,16 @@
+.blogLayout {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 3rem;
+}
+
+.postList {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .blogLayout {
+    grid-template-columns: 1fr;
+  }
+}

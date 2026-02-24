@@ -1,0 +1,18 @@
+.dashboardLayout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.dashboardMain {
+  flex: 1;
+  margin-left: var(--sidebar-width);
+  padding: 2rem;
+  overflow-x: hidden;
+}
+
+@media (max-width: 768px) {
+  .dashboardMain {
+    margin-left: 70px;
+    padding: 1rem;
+  }
+}

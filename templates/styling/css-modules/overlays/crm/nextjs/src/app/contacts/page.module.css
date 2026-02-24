@@ -1,0 +1,180 @@
+.page {
+  max-width: 1200px;
+}
+
+.pageHeader {
+  margin-bottom: 2rem;
+}
+
+.pageHeader h1 {
+  font-size: 1.75rem;
+  color: var(--dark);
+  font-weight: 700;
+}
+
+.pageHeader p {
+  color: var(--text-light);
+  margin-top: 0.25rem;
+}
+
+.tableCard {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.tableControls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.searchInput {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--bg);
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  flex: 1;
+  max-width: 300px;
+}
+
+.searchInput input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 0.9rem;
+  width: 100%;
+}
+
+.filterGroup {
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.filterBtn {
+  padding: 0.4rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--white);
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text);
+  transition: all 0.2s;
+}
+
+.filterBtn:hover {
+  background: var(--primary);
+  color: var(--white);
+  border-color: var(--primary);
+}
+
+.filterBtnActive {
+  composes: filterBtn;
+  background: var(--primary);
+  color: var(--white);
+  border-color: var(--primary);
+}
+
+.tableWrapper {
+  overflow-x: auto;
+}
+
+.dataTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.dataTable th {
+  text-align: left;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.dataTable td {
+  padding: 0.875rem 1.5rem;
+  font-size: 0.9rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.dataTable tbody tr:hover {
+  background: #f9fafb;
+}
+
+.contactCell {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.contactAvatar {
+  font-size: 1.25rem;
+}
+
+.contactName {
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.contactEmail {
+  color: var(--primary);
+}
+
+.contactValue {
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.date {
+  color: var(--text-light);
+}
+
+.emptyState {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-light);
+}
+
+.statusBadge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.statusCustomer {
+  composes: statusBadge;
+  background: #d1fae5;
+  color: #059669;
+}
+
+.statusProspect {
+  composes: statusBadge;
+  background: #dbeafe;
+  color: #2563eb;
+}
+
+.statusLead {
+  composes: statusBadge;
+  background: #fef3c7;
+  color: #d97706;
+}
+
+.statusInactive {
+  composes: statusBadge;
+  background: #f3f4f6;
+  color: #6b7280;
+}

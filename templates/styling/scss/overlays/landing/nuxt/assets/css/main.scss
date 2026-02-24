@@ -1,0 +1,50 @@
+// ==========================================
+// Global Styles - Landing (Nuxt)
+// ==========================================
+
+// Variables
+$primary: #4f46e5;
+$primary-hover: #4338ca;
+$dark: #111827;
+$text: #374151;
+$text-light: #6b7280;
+$bg: #ffffff;
+$font-stack: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+// ==========================================
+// Reset & Base
+// ==========================================
+:root {
+  font-family: $font-stack;
+  line-height: 1.5;
+  font-weight: 400;
+  color: $text;
+  background-color: $bg;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+// ==========================================
+// Dark Mode
+// ==========================================
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #242424;
+  }
+}

@@ -1,0 +1,168 @@
+.aboutPage {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.aboutHero {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.aboutAvatar {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+}
+
+.aboutHero h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--dark);
+  margin-bottom: 1rem;
+}
+
+.aboutIntro {
+  font-size: 1.1rem;
+  color: var(--text);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.aboutSection {
+  margin-bottom: 3rem;
+}
+
+.aboutSection h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 1.5rem;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.timelineItem {
+  display: flex;
+  gap: 1.25rem;
+  background: var(--white);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.timelineIcon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.timelineContent h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.timelineCompany {
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.timelinePeriod {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin-bottom: 0.5rem;
+}
+
+.timelineDescription {
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+.educationGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.25rem;
+}
+
+.educationCard {
+  background: var(--white);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.educationIcon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.educationCard h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.educationSchool {
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+.educationYear {
+  color: var(--text-light);
+  font-size: 0.85rem;
+}
+
+.aboutCta {
+  text-align: center;
+  padding: 3rem;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.aboutCta h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 0.5rem;
+}
+
+.aboutCta p {
+  color: var(--text-light);
+  margin-bottom: 1.5rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.75rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+  font-size: 0.95rem;
+}
+
+.btnPrimary {
+  composes: btn;
+  background: var(--primary);
+  color: var(--white);
+  padding: 0.875rem 2rem;
+  font-size: 1.05rem;
+}
+
+.btnPrimary:hover {
+  background: var(--primary-hover);
+}
+
+@media (max-width: 768px) {
+  .educationGrid {
+    grid-template-columns: 1fr;
+  }
+}

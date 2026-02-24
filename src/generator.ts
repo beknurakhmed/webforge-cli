@@ -90,6 +90,13 @@ async function applyOverlayWithDeps(
     await mergeDependencies(targetDir, deps);
   }
 
+  // Merge framework-specific deps (e.g. deps-vue.json for ant-design-vue)
+  const fwDepsFile = path.join(overlayDir, `deps-${config.framework}.json`);
+  if (await fs.pathExists(fwDepsFile)) {
+    const fwDeps = await fs.readJson(fwDepsFile);
+    await mergeDependencies(targetDir, fwDeps);
+  }
+
   // Copy config files (skip deps.json)
   const configDir = path.join(overlayDir, 'config');
   if (await fs.pathExists(configDir)) {

@@ -1,0 +1,21 @@
+.crm {
+  display: flex;
+  min-height: 100vh;
+}
+
+.crmMain {
+  flex: 1;
+  background: #f9fafb;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+  .crm {
+    flex-direction: column;
+  }
+
+  .crmMain {
+    padding: 1rem;
+  }
+}

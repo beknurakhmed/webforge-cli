@@ -1,0 +1,112 @@
+.pageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.pageHeader h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+}
+
+.primaryBtn {
+  background: #4f46e5;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.25rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.primaryBtn:hover {
+  background: #4338ca;
+}
+
+.tableCard {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+}
+
+.dataTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.dataTable th {
+  text-align: left;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.8rem;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-top: 1px solid #e5e7eb;
+  background: #f9fafb;
+}
+
+.dataTable td {
+  padding: 0.75rem 1.5rem;
+  border-top: 1px solid #f3f4f6;
+  font-size: 0.9rem;
+  color: #374151;
+}
+
+.userCell {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.tableAvatar {
+  font-size: 1.5rem;
+}
+
+.roleBadge {
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: #ede9fe;
+  color: #4f46e5;
+}
+
+.statusActive {
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.statusInactive {
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+@media (max-width: 768px) {
+  .pageHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .dataTable {
+    font-size: 0.8rem;
+  }
+
+  .dataTable th,
+  .dataTable td {
+    padding: 0.5rem 0.75rem;
+  }
+}

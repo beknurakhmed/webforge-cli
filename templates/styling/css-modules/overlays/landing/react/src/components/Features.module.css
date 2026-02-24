@@ -1,0 +1,56 @@
+.features {
+  padding: 5rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.features h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #111827;
+}
+
+.featuresSubtitle {
+  color: #6b7280;
+  font-size: 1.1rem;
+  margin-bottom: 3rem;
+}
+
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  text-align: left;
+}
+
+.featureCard {
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  transition: all 0.2s;
+}
+
+.featureCard:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.featureIcon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.featureCard h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #111827;
+}
+
+.featureCard p {
+  color: #6b7280;
+  line-height: 1.6;
+}

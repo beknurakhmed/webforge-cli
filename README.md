@@ -1,10 +1,23 @@
-# @beknurakhmed/webforge-cli
+<div align="center">
 
-[![npm version](https://img.shields.io/npm/v/@beknurakhmed/webforge-cli.svg)](https://www.npmjs.com/package/@beknurakhmed/webforge-cli)
-[![license](https://img.shields.io/npm/l/@beknurakhmed/webforge-cli.svg)](https://github.com/beknurakhmed/webforge-cli/blob/main/LICENSE)
-[![node](https://img.shields.io/node/v/@beknurakhmed/webforge-cli.svg)](https://nodejs.org)
+# webforge-cli
 
-Interactive CLI to generate production-ready website project templates. Pick your template, framework, styling, state management, and coding paradigm — get a fully configured project in seconds.
+**Interactive CLI to scaffold production-ready web projects in seconds**
+
+[![npm version](https://img.shields.io/npm/v/@beknurakhmed/webforge-cli.svg?style=flat-square&color=4f46e5)](https://www.npmjs.com/package/@beknurakhmed/webforge-cli)
+[![license](https://img.shields.io/npm/l/@beknurakhmed/webforge-cli.svg?style=flat-square)](https://github.com/beknurakhmed/webforge-cli/blob/main/LICENSE)
+[![node](https://img.shields.io/node/v/@beknurakhmed/webforge-cli.svg?style=flat-square)](https://nodejs.org)
+[![downloads](https://img.shields.io/npm/dm/@beknurakhmed/webforge-cli.svg?style=flat-square)](https://www.npmjs.com/package/@beknurakhmed/webforge-cli)
+
+**English** | [Русский](README.ru.md) | [O'zbek](README.uz.md)
+
+<br />
+
+Pick a template, framework, styling, state management, and paradigm — get a fully configured multi-page SPA with routing, layouts, and realistic demo content.
+
+</div>
+
+---
 
 ## Quick Start
 
@@ -15,80 +28,74 @@ npx @beknurakhmed/webforge-cli
 Or install globally:
 
 ```bash
-npm install -g @beknurakhmed/webforge-cli
-webforge-cli
+npm i -g @beknurakhmed/webforge-cli
+webforge-cli my-app
 ```
 
-You can also pass the project name directly:
-
-```bash
-npx @beknurakhmed/webforge-cli my-app
-```
-
-## How It Works
-
-The CLI walks you through an interactive wizard:
+## What You Get
 
 ```
 ┌  webforge-cli  — project template generator
 │
-◆  Project name:         →  my-awesome-app
-◆  Select a template:    →  Landing Page / E-commerce / CRM / Dashboard / Blog / Portfolio
-◆  Select a framework:   →  React / Vue / Angular / Vanilla / Next.js / Nuxt
-◆  Coding paradigm:      →  Functional / SOLID OOP
-◆  Styling solution:     →  Tailwind CSS / SCSS / CSS Modules / Material UI / ...
-◆  State management:     →  Redux / Zustand / MobX / Pinia / NgRx / RxJS / None
-◆  Extra tools:          →  TypeScript / ESLint / Prettier
+◆  Project name         →  my-app
+◆  Template type        →  E-commerce
+◆  Framework            →  React
+◆  Coding paradigm      →  Functional
+◆  Styling solution     →  Tailwind CSS
+◆  State management     →  Zustand
+◆  Extra tools          →  TypeScript, ESLint, Prettier
 │
 ◇  Project generated successfully!
 │
 │  Next steps:
-│  cd my-awesome-app
-│  npm install
-│  npm run dev
+│    cd my-app
+│    npm install
+│    npm run dev
 │
 └  Happy coding!
 ```
 
-## Template Types
+## Templates
 
-| Template | Description |
-|----------|-------------|
-| **Landing Page** | Marketing page with hero, features, CTA, footer |
-| **E-commerce** | Product grid, shopping cart, product cards |
-| **CRM** | Contacts table, stats cards, filters, sidebar |
-| **Dashboard** | KPI cards, charts, data tables, sidebar navigation |
-| **Blog** | Post list, categories sidebar, newsletter signup |
-| **Portfolio** | Hero intro, project grid, skills, contact form |
+| Template | Description | Pages |
+|----------|-------------|-------|
+| **Landing Page** | Marketing page with hero, features, CTA | Single page |
+| **E-commerce** | Product grid, cart, product detail | Home, Product, Cart |
+| **CRM** | Contacts, deals, pipeline | Dashboard, Contacts, Deals, Settings |
+| **Dashboard** | KPI cards, charts, data tables | Overview, Analytics, Users, Settings |
+| **Blog** | Posts, categories, author pages | Home, Post, Category, About |
+| **Portfolio** | Projects, skills, contact form | Home, Projects, About, Contact |
 
 ## Frameworks
 
-| Framework | Build Tool | Version |
-|-----------|-----------|---------|
-| **React** | Vite | React 19 |
-| **Vue** | Vite | Vue 3.5 |
-| **Angular** | Angular CLI | Angular 19 |
-| **Vanilla** | Vite | Plain TS/JS |
-| **Next.js** | Next.js | v15 |
-| **Nuxt** | Nuxt | v3 |
+| Framework | Build Tool | Version | Routing |
+|-----------|-----------|---------|---------|
+| **React** | Vite | React 19 | react-router-dom v7 |
+| **Vue** | Vite | Vue 3.5 | vue-router v4 |
+| **Angular** | Angular CLI | Angular 19 | @angular/router |
+| **Vanilla** | Vite | TypeScript | Custom hash router |
+| **Next.js** | Next.js | v15 | App Router (file-based) |
+| **Nuxt** | Nuxt | v3 | File-based routing |
 
-## Styling Options
+## Styling — 8 Options
 
-| Styling | Works with |
-|---------|-----------|
+| Styling | Compatible Frameworks |
+|---------|----------------------|
 | **Tailwind CSS** | React, Vue, Angular, Vanilla, Next.js, Nuxt |
 | **SCSS** | React, Vue, Angular, Vanilla, Next.js, Nuxt |
 | **CSS Modules** | React, Vue, Vanilla, Next.js, Nuxt |
 | **Styled Components** | React, Next.js |
-| **Material UI** | React, Next.js |
+| **Material UI (MUI)** | React, Next.js |
 | **Chakra UI** | React, Next.js |
 | **Ant Design** | React, Vue, Next.js |
 | **Angular Material** | Angular |
 
+Every styling option generates **real styled components** — not just dependency installs. Tailwind uses utility classes, SCSS uses variables & nesting, MUI uses `sx` props, etc.
+
 ## State Management
 
-| Library | Works with |
-|---------|-----------|
+| Library | Compatible Frameworks |
+|---------|----------------------|
 | **Redux Toolkit** | React, Next.js |
 | **Zustand** | React, Next.js |
 | **MobX** | React, Next.js |
@@ -98,98 +105,50 @@ The CLI walks you through an interactive wizard:
 
 ## Coding Paradigm
 
-Choose between two coding styles for your generated project:
-
-- **Functional** — React hooks, Vue composables, Angular signals, pure functions
-- **SOLID OOP** — Class components, services, dependency injection, OOP patterns
-
-## Examples
-
-### React + Landing Page + Tailwind
-
-```bash
-npx @beknurakhmed/webforge-cli
-# → my-landing
-# → Landing Page
-# → React
-# → Functional
-# → Tailwind CSS
-# → None
-# → TypeScript, ESLint, Prettier
-```
-
-### Vue + E-commerce + SCSS + Pinia
-
-```bash
-npx @beknurakhmed/webforge-cli
-# → my-store
-# → E-commerce
-# → Vue
-# → Functional
-# → SCSS
-# → Pinia
-# → TypeScript
-```
-
-### Angular + Dashboard + Angular Material + NgRx
-
-```bash
-npx @beknurakhmed/webforge-cli
-# → admin-panel
-# → Dashboard
-# → Angular
-# → SOLID OOP
-# → Angular Material
-# → NgRx
-# → TypeScript, ESLint
-```
-
-## Project Structure (Generated)
-
-Example for React + Landing Page:
-
-```
-my-landing/
-├── public/
-│   └── vite.svg
-├── src/
-│   ├── components/
-│   │   ├── Hero.tsx
-│   │   ├── Features.tsx
-│   │   ├── CTA.tsx
-│   │   └── Footer.tsx
-│   ├── App.tsx
-│   ├── App.css
-│   ├── main.tsx
-│   └── index.css
-├── index.html
-├── package.json
-├── vite.config.ts
-├── tailwind.config.js      (if Tailwind selected)
-├── eslint.config.js        (if ESLint selected)
-├── .prettierrc             (if Prettier selected)
-├── .gitignore
-└── README.md
-```
+- **Functional** — hooks, composables, pure functions, signals
+- **SOLID OOP** — classes, services, dependency injection, OOP patterns
 
 ## Architecture
 
-webforge-cli uses a **layered overlay system** to generate projects:
+webforge-cli uses a **layered overlay system**:
 
 ```
-Layer 1: Framework base       (React/Vue/Angular/Vanilla/Next.js/Nuxt)
-Layer 2: Template overlay     (Landing/E-commerce/CRM/Dashboard/Blog/Portfolio)
-Layer 3: Paradigm variant     (Functional/OOP)
-Layer 4: Styling config       (Tailwind/SCSS/Material UI/...)
-Layer 5: State management     (Redux/Zustand/Pinia/...)
-Layer 6: Extras               (ESLint/Prettier)
+Layer 1  Framework base        (React / Vue / Angular / ...)
+Layer 2  Template overlay      (Landing / E-commerce / CRM / ...)
+Layer 3  Paradigm variant      (Functional / OOP)
+Layer 4  Styling config + deps (Tailwind / SCSS / MUI / ...)
+Layer 5  Styling components    (Template-specific styled components)
+Layer 6  State management      (Redux / Zustand / Pinia / ...)
+Layer 7  Extras                (TypeScript / ESLint / Prettier)
 ```
 
-Each layer copies files on top of the previous one. Dependencies are merged into `package.json` automatically.
+Each layer copies files on top of previous ones. Dependencies merge into `package.json` automatically.
+
+**Total combinations:** 6 templates x 6 frameworks x 8 styling x 7 state x 2 paradigms = **4,032 unique projects**
+
+## Examples
+
+```bash
+# React + E-commerce + Tailwind + Zustand
+npx @beknurakhmed/webforge-cli
+# → my-store → E-commerce → React → Functional → Tailwind CSS → Zustand
+
+# Vue + Dashboard + SCSS + Pinia
+npx @beknurakhmed/webforge-cli
+# → admin → Dashboard → Vue → Functional → SCSS → Pinia
+
+# Next.js + Blog + Ant Design
+npx @beknurakhmed/webforge-cli
+# → my-blog → Blog → Next.js → Functional → Ant Design → None
+
+# Angular + CRM + Angular Material + NgRx
+npx @beknurakhmed/webforge-cli
+# → crm-app → CRM → Angular → SOLID OOP → Angular Material → NgRx
+```
 
 ## Requirements
 
-- Node.js >= 18.0.0
+- **Node.js** >= 18.0.0
 
 ## Development
 
@@ -201,18 +160,12 @@ npm run build
 node dist/index.js
 ```
 
-### Scripts
-
 | Script | Description |
 |--------|-------------|
-| `npm run build` | Build CLI with tsup |
-| `npm run dev` | Watch mode build |
-| `npm run start` | Run the CLI |
-| `npm run typecheck` | TypeScript type checking |
-
-## Contributing
-
-Contributions are welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for Git Flow branching strategy and guidelines.
+| `npm run build` | Build with tsup |
+| `npm run dev` | Watch mode |
+| `npm start` | Run CLI |
+| `npm run typecheck` | TypeScript check |
 
 ## Author
 
@@ -223,4 +176,4 @@ Contributions are welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for Git Flow b
 
 ## License
 
-MIT
+[MIT](LICENSE) &copy; 2026 Beknur

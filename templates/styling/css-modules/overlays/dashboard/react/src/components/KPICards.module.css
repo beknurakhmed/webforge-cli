@@ -1,0 +1,44 @@
+.kpiGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.kpiCard {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid #e5e7eb;
+}
+
+.kpiLabel {
+  font-size: 0.85rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.kpiValue {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0.25rem 0;
+  color: #111827;
+}
+
+.kpiChange {
+  font-size: 0.8rem;
+}
+
+.positive {
+  color: #10b981;
+}
+
+.negative {
+  color: #ef4444;
+}
+
+@media (max-width: 768px) {
+  .kpiGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

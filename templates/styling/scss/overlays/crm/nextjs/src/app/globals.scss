@@ -1,0 +1,752 @@
+// ==========================================
+// CRM Styles (Next.js)
+// ==========================================
+
+// Variables
+$primary: #4f46e5;
+$primary-hover: #4338ca;
+$dark: #111827;
+$dark-secondary: #1f2937;
+$text: #374151;
+$text-light: #6b7280;
+$text-muted: #9ca3af;
+$bg: #f3f4f6;
+$bg-light: #f9fafb;
+$white: #ffffff;
+$border: #e5e7eb;
+$radius: 12px;
+$radius-sm: 8px;
+$shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+$shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+$sidebar-width: 260px;
+
+// ==========================================
+// Reset
+// ==========================================
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: $text;
+  background: $bg;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+// ==========================================
+// CRM Layout
+// ==========================================
+.crm-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.crm-main {
+  flex: 1;
+  margin-left: $sidebar-width;
+  padding: 2rem;
+  overflow-x: hidden;
+}
+
+// ==========================================
+// Sidebar
+// ==========================================
+.sidebar {
+  width: $sidebar-width;
+  background: $dark;
+  color: $white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+}
+
+.sidebar-header {
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-bottom: 1px solid $dark-secondary;
+}
+
+.sidebar-logo {
+  font-size: 1.5rem;
+}
+
+.sidebar-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.sidebar-nav {
+  flex: 1;
+  padding: 1rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: $radius-sm;
+  color: $text-muted;
+  transition: all 0.2s;
+  font-weight: 500;
+
+  &:hover {
+    background: $dark-secondary;
+    color: $white;
+  }
+
+  &.active {
+    background: $primary;
+    color: $white;
+  }
+}
+
+.sidebar-icon {
+  font-size: 1.2rem;
+}
+
+.sidebar-footer {
+  padding: 1rem 1.25rem;
+  border-top: 1px solid $dark-secondary;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.user-avatar {
+  font-size: 1.5rem;
+}
+
+.user-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: $white;
+}
+
+.user-role {
+  font-size: 0.75rem;
+  color: $text-muted;
+}
+
+// ==========================================
+// Page
+// ==========================================
+.page {
+  max-width: 1200px;
+}
+
+.page-header {
+  margin-bottom: 2rem;
+
+  h1 {
+    font-size: 1.75rem;
+    color: $dark;
+    font-weight: 700;
+  }
+
+  p {
+    color: $text-light;
+    margin-top: 0.25rem;
+  }
+}
+
+// ==========================================
+// Stats Cards
+// ==========================================
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background: $white;
+  padding: 1.5rem;
+  border-radius: $radius;
+  box-shadow: $shadow;
+}
+
+.stat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.stat-icon {
+  font-size: 1.5rem;
+}
+
+.stat-change {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.2rem 0.5rem;
+  border-radius: 20px;
+
+  &.up {
+    color: #059669;
+    background: #d1fae5;
+  }
+
+  &.down {
+    color: #dc2626;
+    background: #fee2e2;
+  }
+}
+
+.stat-value {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: $dark;
+}
+
+.stat-title {
+  font-size: 0.85rem;
+  color: $text-light;
+  margin-top: 0.25rem;
+}
+
+// ==========================================
+// Dashboard Grid
+// ==========================================
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.5rem;
+}
+
+// ==========================================
+// Activity Card
+// ==========================================
+.activity-card {
+  background: $white;
+  border-radius: $radius;
+  box-shadow: $shadow;
+  padding: 1.5rem;
+}
+
+.activity-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: $dark;
+  margin-bottom: 1rem;
+}
+
+.activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.activity-item {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.activity-icon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.activity-action {
+  font-weight: 600;
+  color: $dark;
+  font-size: 0.9rem;
+}
+
+.activity-detail {
+  font-size: 0.8rem;
+  color: $text;
+}
+
+.activity-time {
+  font-size: 0.75rem;
+  color: $text-light;
+}
+
+// ==========================================
+// Table
+// ==========================================
+.table-card {
+  background: $white;
+  border-radius: $radius;
+  box-shadow: $shadow;
+  overflow: hidden;
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+}
+
+.table-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: $dark;
+}
+
+.contact-count {
+  font-size: 0.85rem;
+  color: $text-light;
+  background: $bg;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+}
+
+.table-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.search-input {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: $bg;
+  border-radius: $radius-sm;
+  padding: 0.5rem 1rem;
+  flex: 1;
+  max-width: 300px;
+
+  input {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 0.9rem;
+    width: 100%;
+  }
+}
+
+.filter-group {
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 0.4rem 0.85rem;
+  border: 1px solid $border;
+  border-radius: 6px;
+  background: $white;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: $text;
+  transition: all 0.2s;
+
+  &:hover,
+  &.active {
+    background: $primary;
+    color: $white;
+    border-color: $primary;
+  }
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  th {
+    text-align: left;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: $text-light;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid $border;
+    background: $bg;
+  }
+
+  td {
+    padding: 0.875rem 1.5rem;
+    font-size: 0.9rem;
+    border-bottom: 1px solid $border;
+  }
+
+  tbody tr:hover {
+    background: $bg-light;
+  }
+}
+
+.contact-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.contact-avatar {
+  font-size: 1.25rem;
+}
+
+.contact-name {
+  font-weight: 600;
+  color: $dark;
+}
+
+.contact-phone {
+  font-size: 0.75rem;
+  color: $text-light;
+}
+
+.contact-email {
+  color: $primary;
+}
+
+.contact-value {
+  font-weight: 700;
+  color: $dark;
+}
+
+.date {
+  color: $text-light;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 2rem;
+  color: $text-light;
+}
+
+// ==========================================
+// Status Badges
+// ==========================================
+.status-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+
+  &.customer {
+    background: #d1fae5;
+    color: #059669;
+  }
+
+  &.prospect {
+    background: #dbeafe;
+    color: #2563eb;
+  }
+
+  &.lead {
+    background: #fef3c7;
+    color: #d97706;
+  }
+
+  &.inactive {
+    background: #f3f4f6;
+    color: $text-light;
+  }
+}
+
+// ==========================================
+// Deals Kanban Board
+// ==========================================
+.deals-board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  min-height: 400px;
+}
+
+.deals-column {
+  background: $bg;
+  border-radius: $radius;
+  padding: 1rem;
+}
+
+.column-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+
+.column-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: $dark;
+}
+
+.column-count {
+  background: $white;
+  color: $text-light;
+  font-size: 0.75rem;
+  font-weight: 600;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.column-total {
+  font-size: 0.8rem;
+  color: $text-light;
+  margin-bottom: 1rem;
+}
+
+.column-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.deal-card {
+  background: $white;
+  padding: 1rem;
+  border-radius: $radius-sm;
+  box-shadow: $shadow;
+}
+
+.deal-company {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: $dark;
+  margin-bottom: 0.25rem;
+}
+
+.deal-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: $primary;
+  margin-bottom: 0.5rem;
+}
+
+.deal-contact {
+  font-size: 0.8rem;
+  color: $text-light;
+}
+
+// ==========================================
+// Settings
+// ==========================================
+.settings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 1.5rem;
+}
+
+.settings-card {
+  background: $white;
+  padding: 1.5rem;
+  border-radius: $radius;
+  box-shadow: $shadow;
+
+  h3 {
+    font-size: 1.1rem;
+    color: $dark;
+    margin-bottom: 1.25rem;
+  }
+}
+
+.form-group {
+  margin-bottom: 1rem;
+
+  label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: $text;
+    margin-bottom: 0.35rem;
+  }
+
+  input,
+  select {
+    width: 100%;
+    padding: 0.625rem 0.875rem;
+    border: 1px solid $border;
+    border-radius: $radius-sm;
+    font-size: 0.9rem;
+    color: $text;
+    background: $white;
+
+    &:focus {
+      outline: none;
+      border-color: $primary;
+      box-shadow: 0 0 0 3px rgba($primary, 0.1);
+    }
+  }
+}
+
+.toggle-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.toggle-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toggle-label {
+  font-weight: 600;
+  color: $dark;
+  font-size: 0.9rem;
+}
+
+.toggle-desc {
+  font-size: 0.8rem;
+  color: $text-light;
+}
+
+.toggle-switch {
+  width: 48px;
+  height: 26px;
+  border-radius: 13px;
+  border: none;
+  background: #d1d5db;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.2s;
+
+  &.active {
+    background: $primary;
+  }
+}
+
+.toggle-knob {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: $white;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  transition: transform 0.2s;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+
+  .toggle-switch.active & {
+    transform: translateX(22px);
+  }
+}
+
+.pipeline-stages-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.pipeline-stage-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: $bg;
+  border-radius: $radius-sm;
+}
+
+.stage-number {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: $primary;
+  color: $white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+// ==========================================
+// Buttons
+// ==========================================
+.btn {
+  display: inline-block;
+  padding: 0.625rem 1.5rem;
+  border-radius: $radius-sm;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+  font-size: 0.9rem;
+
+  &-primary {
+    background: $primary;
+    color: $white;
+
+    &:hover {
+      background: $primary-hover;
+    }
+  }
+}
+
+// ==========================================
+// Responsive
+// ==========================================
+@media (max-width: 768px) {
+  .sidebar {
+    width: 70px;
+    overflow: hidden;
+  }
+
+  .sidebar-title,
+  .sidebar-link span:not(.sidebar-icon),
+  .user-info div,
+  .user-name,
+  .user-role {
+    display: none;
+  }
+
+  .sidebar-header {
+    justify-content: center;
+  }
+
+  .sidebar-link {
+    justify-content: center;
+    padding: 0.75rem;
+  }
+
+  .crm-main {
+    margin-left: 70px;
+    padding: 1rem;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .deals-board {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .settings-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,56 @@
+.pageAnalytics h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 1.5rem;
+}
+
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.metricCard {
+  background: white;
+  border-radius: 12px;
+  padding: 1.25rem;
+  border: 1px solid #e5e7eb;
+}
+
+.metricLabel {
+  font-size: 0.8rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.metricValue {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0.25rem 0;
+}
+
+.metricChange {
+  font-size: 0.8rem;
+  color: #10b981;
+  font-weight: 500;
+}
+
+.dashboardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+  .metricsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboardGrid {
+    grid-template-columns: 1fr;
+  }
+}

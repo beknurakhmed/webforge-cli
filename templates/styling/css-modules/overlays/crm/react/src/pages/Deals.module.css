@@ -1,0 +1,74 @@
+.crmHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.crmHeader h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+}
+
+.dealsBoard {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.dealsColumn {
+  background: white;
+  border-radius: 12px;
+  padding: 1rem;
+  border: 1px solid #e5e7eb;
+}
+
+.columnTitle {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #4f46e5;
+}
+
+.dealCard {
+  background: #f9fafb;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  border: 1px solid #e5e7eb;
+}
+
+.dealCompany {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 0.25rem;
+}
+
+.dealValue {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #4f46e5;
+  margin: 0.25rem 0;
+}
+
+.dealContact {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+@media (max-width: 768px) {
+  .dealsBoard {
+    grid-template-columns: 1fr;
+  }
+
+  .crmHeader {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+}

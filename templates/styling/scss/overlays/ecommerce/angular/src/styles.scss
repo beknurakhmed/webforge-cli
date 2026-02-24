@@ -1,0 +1,93 @@
+// ==========================================
+// Global Styles - E-Commerce (Angular)
+// ==========================================
+
+// Variables
+$primary: #4f46e5;
+$primary-hover: #4338ca;
+$primary-bg: #eef2ff;
+$dark: #111827;
+$text: #374151;
+$text-light: #6b7280;
+$text-muted: #9ca3af;
+$bg: #f9fafb;
+$white: #ffffff;
+$border: #e5e7eb;
+$danger: #ef4444;
+$success: #10b981;
+$radius: 8px;
+$font-stack: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+// ==========================================
+// Reset & Base
+// ==========================================
+:root {
+  font-family: $font-stack;
+  line-height: 1.5;
+  font-weight: 400;
+  color: $text;
+  background-color: $bg;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: $font-stack;
+  color: $text;
+  background: $bg;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+// ==========================================
+// Buttons
+// ==========================================
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  border-radius: $radius;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+  text-align: center;
+
+  &-primary {
+    background: $primary;
+    color: $white;
+
+    &:hover {
+      background: $primary-hover;
+    }
+  }
+
+  &-danger {
+    background: $danger;
+    color: $white;
+
+    &:hover {
+      background: darken($danger, 8%);
+    }
+  }
+}
+
+// ==========================================
+// Dark Mode
+// ==========================================
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #242424;
+  }
+}

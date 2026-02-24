@@ -1,0 +1,64 @@
+.postCard {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.postImage {
+  font-size: 3rem;
+  width: 80px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.postBody {
+  flex: 1;
+}
+
+.postCategory {
+  font-size: 0.75rem;
+  color: #4f46e5;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+}
+
+.postCategory:hover {
+  color: #4338ca;
+}
+
+.postTitleLink {
+  text-decoration: none;
+}
+
+.postTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0.25rem 0 0.5rem;
+}
+
+.postTitleLink:hover .postTitle {
+  color: #4f46e5;
+}
+
+.postExcerpt {
+  color: #6b7280;
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+}
+
+.postMeta {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+
+@media (max-width: 768px) {
+  .postCard {
+    flex-direction: column;
+  }
+}

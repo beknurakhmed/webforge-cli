@@ -1,0 +1,936 @@
+// ==========================================
+// Portfolio Styles (Next.js)
+// ==========================================
+
+// Variables
+$primary: #4f46e5;
+$primary-hover: #4338ca;
+$primary-bg: #eef2ff;
+$primary-light: #818cf8;
+$primary-gradient: linear-gradient(135deg, #eef2ff, #e0e7ff);
+$dark: #111827;
+$dark-secondary: #1f2937;
+$text: #374151;
+$text-light: #6b7280;
+$text-muted: #9ca3af;
+$bg: #f9fafb;
+$bg-gray: #f3f4f6;
+$white: #ffffff;
+$border: #e5e7eb;
+$radius: 12px;
+$radius-sm: 8px;
+$shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+$shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+$max-width: 1100px;
+
+// ==========================================
+// Reset
+// ==========================================
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: $text;
+  background: $bg;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+// ==========================================
+// Navbar
+// ==========================================
+.navbar {
+  background: $white;
+  border-bottom: 1px solid $border;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar-container {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: $dark;
+}
+
+.logo-icon {
+  font-size: 1.4rem;
+}
+
+.navbar-nav {
+  display: flex;
+  gap: 1.75rem;
+}
+
+.navbar-link {
+  color: $text;
+  font-weight: 500;
+  transition: color 0.2s;
+  padding: 0.25rem 0;
+  border-bottom: 2px solid transparent;
+
+  &:hover {
+    color: $primary;
+  }
+
+  &.active {
+    color: $primary;
+    border-bottom-color: $primary;
+  }
+}
+
+// ==========================================
+// Home Page
+// ==========================================
+.home-page {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+// ==========================================
+// Hero
+// ==========================================
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  padding: 4rem 0;
+}
+
+.hero-greeting {
+  font-size: 1.1rem;
+  color: $primary;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.hero-name {
+  font-size: 3rem;
+  font-weight: 800;
+  color: $dark;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+
+.hero-title {
+  font-size: 1.35rem;
+  color: $text-light;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.hero-description {
+  font-size: 1.05rem;
+  color: $text;
+  margin-bottom: 2rem;
+  max-width: 500px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.hero-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-emoji {
+  font-size: 10rem;
+}
+
+// ==========================================
+// Section Styles
+// ==========================================
+.section-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: $dark;
+  text-align: center;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: $text-light;
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.section-cta {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+// ==========================================
+// Featured Section
+// ==========================================
+.featured-section {
+  padding: 4rem 0;
+}
+
+// ==========================================
+// Projects Grid
+// ==========================================
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+// ==========================================
+// Project Card
+// ==========================================
+.project-card {
+  background: $white;
+  border-radius: $radius;
+  overflow: hidden;
+  box-shadow: $shadow;
+  transition: transform 0.2s, box-shadow 0.2s;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-lg;
+  }
+}
+
+.project-image {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  background: $primary-gradient;
+}
+
+.project-info {
+  padding: 1.25rem;
+}
+
+.project-category {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: $primary;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.project-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: $dark;
+  margin: 0.35rem 0;
+}
+
+.project-description {
+  font-size: 0.9rem;
+  color: $text;
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.tech-tag {
+  background: $primary-bg;
+  color: $primary;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.project-link {
+  color: $primary;
+  font-weight: 600;
+  font-size: 0.9rem;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// ==========================================
+// Skills Section
+// ==========================================
+.skills-section {
+  padding: 4rem 0;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.skill-card {
+  background: $white;
+  padding: 1.25rem;
+  border-radius: $radius;
+  box-shadow: $shadow;
+}
+
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.skill-icon {
+  font-size: 1.5rem;
+}
+
+.skill-category {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: $text-light;
+  text-transform: uppercase;
+}
+
+.skill-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: $dark;
+  margin-bottom: 0.5rem;
+}
+
+.skill-bar {
+  width: 100%;
+  height: 6px;
+  background: $bg;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 0.25rem;
+}
+
+.skill-fill {
+  height: 100%;
+  background: linear-gradient(90deg, $primary, $primary-light);
+  border-radius: 3px;
+  transition: width 0.5s ease;
+}
+
+.skill-level {
+  font-size: 0.75rem;
+  color: $text-light;
+  font-weight: 600;
+}
+
+// ==========================================
+// CTA Section
+// ==========================================
+.cta-section {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, $primary, #7c3aed);
+  border-radius: $radius;
+  margin: 4rem 0;
+  color: $white;
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 0.75rem;
+  }
+
+  p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 1.5rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .btn-primary {
+    background: $white;
+    color: $primary;
+
+    &:hover {
+      background: $bg-gray;
+    }
+  }
+}
+
+// ==========================================
+// Projects Page
+// ==========================================
+.projects-page {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.projects-header {
+  text-align: center;
+  margin-bottom: 2rem;
+
+  h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: $dark;
+  }
+
+  p {
+    color: $text-light;
+    margin-top: 0.5rem;
+  }
+}
+
+.filter-group {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 0.5rem 1.25rem;
+  border: 2px solid $border;
+  border-radius: 50px;
+  background: $white;
+  cursor: pointer;
+  font-weight: 500;
+  color: $text;
+  transition: all 0.2s;
+  font-size: 0.85rem;
+
+  &:hover,
+  &.active {
+    background: $primary;
+    color: $white;
+    border-color: $primary;
+  }
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem;
+  color: $text-light;
+}
+
+// ==========================================
+// About Page
+// ==========================================
+.about-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.about-hero {
+  text-align: center;
+  margin-bottom: 3rem;
+
+  h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: $dark;
+    margin-bottom: 1rem;
+  }
+}
+
+.about-avatar {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+}
+
+.about-intro {
+  font-size: 1.1rem;
+  color: $text;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.about-section {
+  margin-bottom: 3rem;
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $dark;
+    margin-bottom: 1.5rem;
+  }
+}
+
+// ==========================================
+// Timeline
+// ==========================================
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.timeline-item {
+  display: flex;
+  gap: 1.25rem;
+  background: $white;
+  padding: 1.5rem;
+  border-radius: $radius;
+  box-shadow: $shadow;
+}
+
+.timeline-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.timeline-content {
+  h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: $dark;
+  }
+}
+
+.timeline-company {
+  color: $primary;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.timeline-period {
+  font-size: 0.8rem;
+  color: $text-light;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-description {
+  font-size: 0.9rem;
+  color: $text;
+}
+
+// ==========================================
+// Education
+// ==========================================
+.education-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.25rem;
+}
+
+.education-card {
+  background: $white;
+  padding: 1.5rem;
+  border-radius: $radius;
+  box-shadow: $shadow;
+  text-align: center;
+
+  h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: $dark;
+  }
+}
+
+.education-icon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.education-school {
+  color: $text;
+  font-size: 0.9rem;
+}
+
+.education-year {
+  color: $text-light;
+  font-size: 0.85rem;
+}
+
+// ==========================================
+// About CTA
+// ==========================================
+.about-cta {
+  text-align: center;
+  padding: 3rem;
+  background: $white;
+  border-radius: $radius;
+  box-shadow: $shadow;
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $dark;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    color: $text-light;
+    margin-bottom: 1.5rem;
+  }
+}
+
+// ==========================================
+// Contact Page
+// ==========================================
+.contact-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+
+  h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: $dark;
+  }
+
+  p {
+    color: $text-light;
+    margin-top: 0.5rem;
+  }
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.contact-form-card {
+  background: $white;
+  padding: 2rem;
+  border-radius: $radius;
+  box-shadow: $shadow;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+
+  label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: $text;
+    margin-bottom: 0.35rem;
+  }
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid $border;
+    border-radius: $radius-sm;
+    font-size: 0.95rem;
+    color: $text;
+    background: $white;
+    font-family: inherit;
+
+    &:focus {
+      outline: none;
+      border-color: $primary;
+      box-shadow: 0 0 0 3px rgba($primary, 0.1);
+    }
+  }
+
+  textarea {
+    resize: vertical;
+  }
+}
+
+.success-message {
+  text-align: center;
+  padding: 2rem;
+
+  h3 {
+    font-size: 1.25rem;
+    color: $dark;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    color: $text-light;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.success-icon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+// ==========================================
+// Contact Info
+// ==========================================
+.contact-info-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.contact-info-card {
+  background: $white;
+  padding: 1.5rem;
+  border-radius: $radius;
+  box-shadow: $shadow;
+
+  h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: $dark;
+    margin-bottom: 1rem;
+  }
+}
+
+.info-item {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.info-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.info-label {
+  font-size: 0.8rem;
+  color: $text-light;
+}
+
+.info-value {
+  font-weight: 600;
+  color: $dark;
+}
+
+.social-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.social-card {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background: $bg;
+  border-radius: $radius-sm;
+  font-weight: 500;
+  color: $text;
+  transition: all 0.2s;
+
+  &:hover {
+    background: $primary-bg;
+    color: $primary;
+  }
+}
+
+// ==========================================
+// Buttons
+// ==========================================
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.75rem;
+  border-radius: $radius-sm;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+  font-size: 0.95rem;
+
+  &-primary {
+    background: $primary;
+    color: $white;
+
+    &:hover {
+      background: $primary-hover;
+    }
+  }
+
+  &-outline {
+    background: transparent;
+    color: $primary;
+    border: 2px solid $primary;
+
+    &:hover {
+      background: $primary;
+      color: $white;
+    }
+  }
+
+  &-lg {
+    padding: 0.875rem 2rem;
+    font-size: 1.05rem;
+  }
+
+  &-full {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+// ==========================================
+// Footer
+// ==========================================
+.portfolio-footer {
+  background: $dark;
+  color: #d1d5db;
+  padding: 3rem 1.5rem 1.5rem;
+  margin-top: 4rem;
+}
+
+.footer-container {
+  max-width: $max-width;
+  margin: 0 auto;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-section {
+  h3 {
+    color: $white;
+    font-size: 1.15rem;
+    margin-bottom: 0.75rem;
+  }
+
+  h4 {
+    color: $white;
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+  }
+
+  p {
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  li {
+    padding: 0.2rem 0;
+    font-size: 0.85rem;
+  }
+
+  a:hover {
+    color: $white;
+  }
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  font-size: 1.4rem;
+}
+
+.footer-bottom {
+  border-top: 1px solid #374151;
+  padding-top: 1.5rem;
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+// ==========================================
+// Responsive
+// ==========================================
+@media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 2.5rem 0;
+  }
+
+  .hero-description {
+    margin: 0 auto 2rem;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-emoji {
+    font-size: 6rem;
+  }
+
+  .hero-name {
+    font-size: 2rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .navbar-nav {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .education-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -2,6 +2,7 @@ import * as p from '@clack/prompts';
 import pc from 'picocolors';
 import path from 'node:path';
 import fs from 'node:fs';
+import { fileURLToPath } from 'node:url';
 import {
   TEMPLATE_OPTIONS,
   FRAMEWORK_OPTIONS,
@@ -16,9 +17,60 @@ import { generateProject } from './generator.js';
 import { validateProjectName, isDirectoryEmpty } from './utils.js';
 import type { ProjectConfig, Framework, Styling, StateManagement } from './types.js';
 
+function getVersion(): string {
+  try {
+    const __filename = fileURLToPath(import.meta.url);
+    const __dirname = path.dirname(__filename);
+    const pkgPath = path.resolve(__dirname, '..', 'package.json');
+    const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'));
+    return pkg.version || '0.0.0';
+  } catch {
+    return '0.0.0';
+  }
+}
+
+function printBanner(version: string): void {
+  const banner = `
+${pc.bold(pc.cyan('  ╦ ╦╔═╗╔╗ ╔═╗╔═╗╦═╗╔═╗╔═╗'))}
+${pc.bold(pc.cyan('  ║║║║╣ ╠╩╗╠╣ ║ ║╠╦╝║ ╦║╣ '))}
+${pc.bold(pc.cyan('  ╚╩╝╚═╝╚═╝╚  ╚═╝╩╚═╚═╝╚═╝'))}  ${pc.dim(`v${version}`)}
+`;
+  console.log(banner);
+}
+
+function getLabelForValue(options: { value: string; label: string }[], value: string): string {
+  return options.find((o) => o.value === value)?.label || value;
+}
+
 export async function runCli(): Promise<void> {
-  console.log('');
-  p.intro(pc.bgCyan(pc.black(' webforge-cli ')) + pc.dim(' — project template generator'));
+  const version = getVersion();
+
+  // Handle --version / -v flag
+  if (process.argv.includes('--version') || process.argv.includes('-v')) {
+    console.log(version);
+    process.exit(0);
+  }
+
+  // Handle --help / -h flag
+  if (process.argv.includes('--help') || process.argv.includes('-h')) {
+    printBanner(version);
+    console.log(`  ${pc.bold('Usage:')}  npx @beknurakhmed/webforge-cli ${pc.dim('[project-name]')}
+
+  ${pc.bold('Options:')}
+    ${pc.cyan('-v, --version')}   Show version number
+    ${pc.cyan('-h, --help')}      Show this help message
+
+  ${pc.bold('Templates:')}  Landing Page, E-commerce, CRM, Dashboard, Blog, Portfolio
+  ${pc.bold('Frameworks:')} React, Vue, Angular, Vanilla, Next.js, Nuxt
+  ${pc.bold('Styling:')}    Tailwind, SCSS, CSS Modules, Styled Components, MUI, Chakra, Ant Design, Angular Material
+
+  ${pc.dim('Docs:')} ${pc.underline('https://github.com/beknurakhmed/webforge-cli')}
+`);
+    process.exit(0);
+  }
+
+  printBanner(version);
+  p.intro(pc.bgCyan(pc.black(' webforge-cli ')) + pc.dim(' — scaffold your next project'));
 
   const argProjectName = process.argv[2];
 
@@ -26,7 +78,7 @@ export async function runCli(): Promise<void> {
     {
       projectName: () =>
         p.text({
-          message: 'Project name:',
+          message: `${pc.bold('Project name')}`,
           placeholder: 'my-awesome-project',
           initialValue: argProjectName,
           validate: (value) => validateProjectName(value ?? ''),
@@ -34,7 +86,7 @@ export async function runCli(): Promise<void> {
 
       templateType: () =>
         p.select({
-          message: 'Select a template type:',
+          message: `${pc.bold('Template type')}`,
           options: TEMPLATE_OPTIONS.map((t) => ({
             value: t.value,
             label: t.label,
@@ -44,7 +96,7 @@ export async function runCli(): Promise<void> {
 
       framework: () =>
         p.select({
-          message: 'Select a framework:',
+          message: `${pc.bold('Framework')}`,
           options: FRAMEWORK_OPTIONS.map((f) => ({
             value: f.value,
             label: f.label,
@@ -54,11 +106,11 @@ export async function runCli(): Promise<void> {
 
       paradigm: () =>
         p.select({
-          message: 'Select a coding paradigm:',
-          options: PARADIGM_OPTIONS.map((p) => ({
-            value: p.value,
-            label: p.label,
-            hint: p.hint,
+          message: `${pc.bold('Coding paradigm')}`,
+          options: PARADIGM_OPTIONS.map((pp) => ({
+            value: pp.value,
+            label: pp.label,
+            hint: pp.hint,
           })),
         }),
 
@@ -68,7 +120,7 @@ export async function runCli(): Promise<void> {
           STYLING_COMPATIBILITY[s.value as Styling]?.includes(fw)
         );
         return p.select({
-          message: 'Select a styling solution:',
+          message: `${pc.bold('Styling solution')}`,
           options: compatible.map((s) => ({
             value: s.value,
             label: s.label,
@@ -83,7 +135,7 @@ export async function runCli(): Promise<void> {
           STATE_COMPATIBILITY[s.value as StateManagement]?.includes(fw)
         );
         return p.select({
-          message: 'Select state management:',
+          message: `${pc.bold('State management')}`,
           options: compatible.map((s) => ({
             value: s.value,
             label: s.label,
@@ -94,7 +146,7 @@ export async function runCli(): Promise<void> {
 
       extras: () =>
         p.multiselect({
-          message: 'Select additional tools:',
+          message: `${pc.bold('Additional tools')}`,
           options: EXTRAS_OPTIONS.map((e) => ({
             value: e.value,
             label: e.label,
@@ -116,7 +168,7 @@ export async function runCli(): Promise<void> {
   // Check if directory exists and is not empty
   if (!isDirectoryEmpty(targetDir)) {
     const shouldOverwrite = await p.confirm({
-      message: `Directory "${config.projectName}" is not empty. Overwrite?`,
+      message: `Directory "${config.projectName}" already exists. Overwrite?`,
       initialValue: false,
     });
 
@@ -125,7 +177,6 @@ export async function runCli(): Promise<void> {
       process.exit(0);
     }
 
-    // Clear the directory
     fs.rmSync(targetDir, { recursive: true, force: true });
   }
 
@@ -140,41 +191,53 @@ export async function runCli(): Promise<void> {
     targetDir,
   };
 
-  // Show summary
-  p.log.info(
-    `${pc.bold('Configuration:')}\n` +
-    `  Template:    ${pc.cyan(config.templateType)}\n` +
-    `  Framework:   ${pc.cyan(config.framework)}\n` +
-    `  Paradigm:    ${pc.cyan(config.paradigm)}\n` +
-    `  Styling:     ${pc.cyan(String(config.styling))}\n` +
-    `  State:       ${pc.cyan(String(config.stateManagement))}\n` +
-    `  Extras:      ${pc.cyan((config.extras as string[]).join(', ') || 'none')}`
+  // Show summary box
+  const templateLabel = getLabelForValue(TEMPLATE_OPTIONS, config.templateType);
+  const frameworkLabel = getLabelForValue(FRAMEWORK_OPTIONS, config.framework);
+  const paradigmLabel = getLabelForValue(PARADIGM_OPTIONS, config.paradigm);
+  const stylingLabel = getLabelForValue(STYLING_OPTIONS, String(config.styling));
+  const stateLabel = getLabelForValue(STATE_OPTIONS, String(config.stateManagement));
+  const extrasStr = (config.extras as string[]).map((e) => getLabelForValue(EXTRAS_OPTIONS, e)).join(', ') || pc.dim('none');
+
+  p.log.message(
+    `\n` +
+    `  ${pc.dim('Project')}     ${pc.bold(pc.white(config.projectName))}\n` +
+    `  ${pc.dim('Template')}    ${pc.cyan(templateLabel)}\n` +
+    `  ${pc.dim('Framework')}   ${pc.cyan(frameworkLabel)}\n` +
+    `  ${pc.dim('Paradigm')}    ${pc.cyan(paradigmLabel)}\n` +
+    `  ${pc.dim('Styling')}     ${pc.cyan(stylingLabel)}\n` +
+    `  ${pc.dim('State')}       ${pc.cyan(stateLabel)}\n` +
+    `  ${pc.dim('Extras')}      ${pc.cyan(extrasStr)}`
   );
 
   const spinner = p.spinner();
-  spinner.start('Generating project...');
+  spinner.start('Scaffolding project...');
 
   try {
     await generateProject(projectConfig);
-    spinner.stop('Project generated successfully!');
+    spinner.stop(pc.green('Project scaffolded successfully!'));
   } catch (err) {
-    spinner.stop('Generation failed.');
+    spinner.stop(pc.red('Scaffolding failed.'));
     p.log.error(String(err));
     process.exit(1);
   }
 
   const pkgManager = detectPackageManager();
+  const runCmd = pkgManager === 'npm' ? 'npm run' : pkgManager;
 
   p.note(
     [
-      `cd ${config.projectName}`,
-      `${pkgManager} install`,
-      `${pkgManager === 'npm' ? 'npm run' : pkgManager} dev`,
+      `${pc.cyan('cd')} ${config.projectName}`,
+      `${pc.cyan(pkgManager)} install`,
+      `${pc.cyan(runCmd)} dev`,
     ].join('\n'),
     'Next steps'
   );
 
-  p.outro(pc.green('Happy coding!'));
+  p.outro(
+    pc.green('Happy coding! ') +
+    pc.dim(' github.com/beknurakhmed/webforge-cli')
+  );
 }
 
 function detectPackageManager(): string {

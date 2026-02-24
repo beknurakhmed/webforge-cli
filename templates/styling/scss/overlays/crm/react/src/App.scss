@@ -1,0 +1,391 @@
+// ==========================================
+// CRM Styles
+// ==========================================
+
+// Variables
+$primary: #4f46e5;
+$primary-hover: #4338ca;
+$dark: #111827;
+$dark-secondary: #1f2937;
+$text: #374151;
+$text-light: #6b7280;
+$text-muted: #9ca3af;
+$bg-light: #f9fafb;
+$white: white;
+$border: #e5e7eb;
+$border-dark: #d1d5db;
+$border-light: #f3f4f6;
+$radius-md: 8px;
+$radius-lg: 12px;
+$radius-full: 9999px;
+$sidebar-width: 240px;
+
+// ==========================================
+// Layout
+// ==========================================
+.crm {
+  display: flex;
+  min-height: 100vh;
+}
+
+.crm-main {
+  flex: 1;
+  background: $bg-light;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.crm-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+
+  h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: $dark;
+    margin: 0;
+  }
+}
+
+// ==========================================
+// Sidebar
+// ==========================================
+.sidebar {
+  width: $sidebar-width;
+  background: $dark;
+  color: $white;
+  padding: 1.5rem;
+  flex-shrink: 0;
+}
+
+.sidebar-logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 2rem;
+  color: $primary;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.7rem;
+  border-radius: $radius-md;
+  color: $text-muted;
+  text-decoration: none;
+  transition: all 0.15s;
+
+  &:hover {
+    background: $dark-secondary;
+    color: $white;
+  }
+
+  &.active {
+    background: $primary;
+    color: $white;
+  }
+}
+
+.sidebar-icon {
+  font-size: 1.1rem;
+}
+
+// ==========================================
+// Buttons
+// ==========================================
+.btn-primary {
+  background: $primary;
+  color: $white;
+  border: none;
+  padding: 0.6rem 1.25rem;
+  border-radius: $radius-md;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+
+  &:hover {
+    background: $primary-hover;
+  }
+}
+
+// ==========================================
+// Search
+// ==========================================
+.search-input {
+  padding: 0.5rem 1rem;
+  border: 1px solid $border-dark;
+  border-radius: $radius-md;
+  font-size: 0.9rem;
+  width: 260px;
+
+  &:focus {
+    outline: none;
+    border-color: $primary;
+    box-shadow: 0 0 0 2px rgba($primary, 0.15);
+  }
+}
+
+// ==========================================
+// Stats
+// ==========================================
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.stat-card {
+  background: $white;
+  border-radius: $radius-lg;
+  padding: 1.25rem;
+  border: 1px solid $border;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: $text-light;
+}
+
+.stat-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: $dark;
+}
+
+// ==========================================
+// Section Title
+// ==========================================
+.section-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: $dark;
+  margin: 1.5rem 0 1rem;
+}
+
+// ==========================================
+// Table
+// ==========================================
+.table-card {
+  background: $white;
+  border-radius: $radius-lg;
+  border: 1px solid $border;
+  overflow: hidden;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  th {
+    text-align: left;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.8rem;
+    color: $text-light;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: $bg-light;
+    border-bottom: 1px solid $border;
+  }
+
+  td {
+    padding: 0.75rem 1.25rem;
+    border-bottom: 1px solid $border-light;
+    font-size: 0.9rem;
+  }
+}
+
+.contact-name {
+  font-weight: 600;
+  color: $dark;
+}
+
+.contact-email {
+  color: $text-light;
+}
+
+.contact-phone {
+  color: $text;
+}
+
+.status-badge {
+  padding: 0.2rem 0.6rem;
+  border-radius: $radius-full;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.status-lead {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.status-prospect {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.status-customer {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.status-churned {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+// ==========================================
+// Deals Board
+// ==========================================
+.deals-board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.deals-column {
+  background: $white;
+  border-radius: $radius-lg;
+  padding: 1rem;
+  border: 1px solid $border;
+}
+
+.column-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: $text;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid $primary;
+}
+
+.deal-card {
+  background: $bg-light;
+  border-radius: $radius-md;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  border: 1px solid $border;
+}
+
+.deal-company {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: $dark;
+  margin: 0 0 0.25rem;
+}
+
+.deal-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: $primary;
+  margin: 0.25rem 0;
+}
+
+.deal-contact {
+  font-size: 0.8rem;
+  color: $text-light;
+}
+
+// ==========================================
+// Settings
+// ==========================================
+.settings-card {
+  background: $white;
+  border-radius: $radius-lg;
+  padding: 2rem;
+  border: 1px solid $border;
+  max-width: 500px;
+}
+
+.settings-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: $text;
+  }
+
+  input,
+  select {
+    padding: 0.6rem 0.75rem;
+    border: 1px solid $border-dark;
+    border-radius: $radius-md;
+    font-size: 0.9rem;
+    font-family: inherit;
+
+    &:focus {
+      outline: none;
+      border-color: $primary;
+    }
+  }
+}
+
+// ==========================================
+// Responsive
+// ==========================================
+@media (max-width: 768px) {
+  .crm {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .sidebar-nav {
+    flex-direction: row;
+    overflow-x: auto;
+  }
+
+  .crm-main {
+    padding: 1rem;
+  }
+
+  .deals-board {
+    grid-template-columns: 1fr;
+  }
+
+  .crm-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .search-input {
+    width: 100%;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
