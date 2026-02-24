@@ -18,7 +18,7 @@
 
 <br />
 
-Shablon, freymvork, stilizatsiya, holat boshqaruvi va paradigmani tanlang — routing, layoutlar va real demo-kontent bilan to'liq sozlangan ko'p sahifali SPA oling.
+Shablon, freymvork, stilizatsiya, holat boshqaruvi, paradigma, routing, i18n va mavzuni tanlang — layoutlar, mavzu almashtirish, til almashtirish va real demo-kontent bilan to'liq sozlangan ko'p sahifali SPA oling.
 
 </div>
 
@@ -48,6 +48,9 @@ webforge-cli my-app
 ◆  Paradigma            →  Funksional
 ◆  Stilizatsiya         →  Tailwind CSS
 ◆  Holat boshqaruvi     →  Zustand
+◆  Routing              →  Ha
+◆  Xalqarolashtirish    →  Ha (EN / RU / UZ)
+◆  Mavzu                →  Qorong'i
 ◆  Qo'shimcha vositalar →  TypeScript, ESLint, Prettier
 │
 ◇  Loyiha muvaffaqiyatli yaratildi!
@@ -113,42 +116,73 @@ Har bir stilizatsiya varianti **haqiqiy stilizatsiya qilingan komponentlar** yar
 - **Funksional** — hooklar, composablelar, toza funksiyalar, signallar
 - **SOLID OOP** — klasslar, servislar, dependency injection, OOP patternlar
 
+## Routing
+
+Barcha freymvorklar ixtiyoriy ko'p sahifali routing, layoutlar va navigatsiyani qo'llab-quvvatlaydi:
+
+| Freymvork | Router | Pattern |
+|-----------|--------|---------|
+| **React** | react-router-dom v7 | BrowserRouter + Layout bilan Outlet |
+| **Vue** | vue-router v4 | createRouter + RouterView |
+| **Angular** | @angular/router | provideRouter + router-outlet |
+| **Vanilla** | Maxsus hash router | ~30 qator hash-router |
+| **Next.js** | App Router | Fayl asosida routing (o'rnatilgan) |
+| **Nuxt** | Nuxt Router | Fayl asosida routing (o'rnatilgan) |
+
+## Xalqarolashtirish (i18n)
+
+O'rnatilgan til almashtirgich EN / RU / UZ tarjimalari va localStorage'da saqlash bilan. Har bir freymvork idiomatik amalga oshirish oladi — React hook, Vue composable, Angular servis va h.k.
+
+## Mavzu
+
+Standart mavzu sifatida **Yorug'** yoki **Qorong'i**ni tanlang. Mavzu almashtirgich komponent va CSS o'zgaruvchilari bilan to'liq ishlaydi. Mavzu tanlovi localStorage'da saqlanadi.
+
+## Angular rejimi
+
+Angular ishlatganda ikkita variant mavjud:
+- **Standalone** (standart) — zamonaviy standalone komponentlar
+- **NgModules** — an'anaviy modulli arxitektura
+
 ## Arxitektura
 
 webforge-cli **qatlamli overlay tizimi** ishlatadi:
 
 ```
-Qatlam 1  Freymvork bazasi         (React / Vue / Angular / ...)
-Qatlam 2  Shablon overlay          (Landing / E-commerce / CRM / ...)
-Qatlam 3  Paradigma varianti       (Funksional / OOP)
-Qatlam 4  Stilizatsiya konfiguratsiyasi (Tailwind / SCSS / MUI / ...)
-Qatlam 5  Stilizatsiya komponentlari   (Tanlangan stil uchun komponentlar)
-Qatlam 6  Holat boshqaruvi         (Redux / Zustand / Pinia / ...)
-Qatlam 7  Qo'shimcha vositalar     (TypeScript / ESLint / Prettier)
+Qatlam 1    Freymvork bazasi         (React / Vue / Angular / ...)
+Qatlam 1.5  Angular rejimi           (Standalone / NgModules)
+Qatlam 2    Shablon overlay          (Landing / E-commerce / CRM / ...)
+Qatlam 3    Paradigma varianti       (Funksional / OOP)
+Qatlam 4    Stilizatsiya konfiguratsiyasi (Tailwind / SCSS / MUI / ...)
+Qatlam 5    Stilizatsiya komponentlari   (Tanlangan stil uchun komponentlar)
+Qatlam 6    Holat boshqaruvi         (Redux / Zustand / Pinia / ...)
+Qatlam 7    Routing                  (Freymvork uchun router + sahifalar)
+Qatlam 8    Xalqarolashtirish        (i18n servis + til almashtirgich)
+Qatlam 9    Mavzu                    (CSS o'zgaruvchilari + mavzu almashtirgich)
+Qatlam 10   Qo'shimcha vositalar     (TypeScript / ESLint / Prettier)
 ```
 
 Har bir qatlam oldingi qatlam ustiga fayllarni ko'chiradi. Dependency'lar `package.json`ga avtomatik birlashtiriladi.
 
-**Jami kombinatsiyalar:** 6 shablon x 6 freymvork x 8 stil x 7 holat x 2 paradigma = **4 032 noyob loyiha**
+**Jami kombinatsiyalar:** 6 shablon x 6 freymvork x 8 stil x 7 holat x 2 paradigma x 2 routing x 2 i18n x 2 mavzu = **32 000+ noyob loyiha**
 
 ## Misollar
 
 ```bash
-# React + E-commerce + Tailwind + Zustand
+# React + E-commerce + Tailwind + Zustand + Routing + i18n + Qorong'i mavzu
 npx @beknurakhmed/webforge-cli
-# → my-store → E-commerce → React → Functional → Tailwind CSS → Zustand
+# → my-store → E-commerce → React → Functional → Tailwind CSS → Zustand → Routing ✓ → i18n ✓ → Dark
 
 # Vue + Dashboard + SCSS + Pinia
 npx @beknurakhmed/webforge-cli
-# → admin → Dashboard → Vue → Functional → SCSS → Pinia
+# → admin → Dashboard → Vue → Functional → SCSS → Pinia → Routing ✓ → i18n ✗ → Light
 
-# Next.js + Blog + Ant Design
+# Next.js + Blog + Ant Design + i18n
 npx @beknurakhmed/webforge-cli
-# → my-blog → Blog → Next.js → Functional → Ant Design → None
+# → my-blog → Blog → Next.js → Functional → Ant Design → None → Routing ✓ → i18n ✓ → Light
 
-# Angular + CRM + Angular Material + NgRx
+# Angular + CRM + NgModules + Angular Material + NgRx
 npx @beknurakhmed/webforge-cli
-# → crm-app → CRM → Angular → SOLID OOP → Angular Material → NgRx
+# → crm-app → CRM → Angular (NgModules) → SOLID OOP → Angular Material → NgRx → Routing ✓ → i18n ✗ → Dark
 ```
 
 ## Talablar

@@ -10,12 +10,15 @@ import {
   STYLING_OPTIONS,
   STATE_OPTIONS,
   EXTRAS_OPTIONS,
+  ANGULAR_MODE_OPTIONS,
+  THEME_OPTIONS,
   STYLING_COMPATIBILITY,
   STATE_COMPATIBILITY,
+  BUILTIN_ROUTING_FRAMEWORKS,
 } from './constants.js';
 import { generateProject } from './generator.js';
 import { validateProjectName, isDirectoryEmpty } from './utils.js';
-import type { ProjectConfig, Framework, Styling, StateManagement } from './types.js';
+import type { ProjectConfig, Framework, Styling, StateManagement, AngularMode, Theme } from './types.js';
 
 function getVersion(): string {
   try {
@@ -104,6 +107,18 @@ export async function runCli(): Promise<void> {
           })),
         }),
 
+      angularMode: ({ results }) => {
+        if (results.framework !== 'angular') return Promise.resolve(undefined);
+        return p.select({
+          message: `${pc.bold('Angular mode')}`,
+          options: ANGULAR_MODE_OPTIONS.map((m) => ({
+            value: m.value,
+            label: m.label,
+            hint: m.hint,
+          })),
+        });
+      },
+
       paradigm: () =>
         p.select({
           message: `${pc.bold('Coding paradigm')}`,
@@ -143,6 +158,31 @@ export async function runCli(): Promise<void> {
           })),
         });
       },
+
+      routing: ({ results }) => {
+        const fw = results.framework as Framework;
+        const hint = BUILTIN_ROUTING_FRAMEWORKS.includes(fw) ? ' (built-in file routing)' : '';
+        return p.confirm({
+          message: `${pc.bold('Include routing?')}${pc.dim(hint)}`,
+          initialValue: true,
+        });
+      },
+
+      i18n: () =>
+        p.confirm({
+          message: `${pc.bold('Include i18n?')}${pc.dim(' (language switcher + translations)')}`,
+          initialValue: false,
+        }),
+
+      theme: () =>
+        p.select({
+          message: `${pc.bold('Default theme')}`,
+          options: THEME_OPTIONS.map((t) => ({
+            value: t.value,
+            label: t.label,
+            hint: t.hint,
+          })),
+        }),
 
       extras: () =>
         p.multiselect({
@@ -187,6 +227,10 @@ export async function runCli(): Promise<void> {
     paradigm: config.paradigm,
     styling: config.styling as ProjectConfig['styling'],
     stateManagement: config.stateManagement as ProjectConfig['stateManagement'],
+    routing: config.routing as boolean,
+    i18n: config.i18n as boolean,
+    theme: config.theme as Theme,
+    angularMode: config.angularMode as AngularMode | undefined,
     extras: config.extras as ProjectConfig['extras'],
     targetDir,
   };
@@ -197,18 +241,30 @@ export async function runCli(): Promise<void> {
   const paradigmLabel = getLabelForValue(PARADIGM_OPTIONS, config.paradigm);
   const stylingLabel = getLabelForValue(STYLING_OPTIONS, String(config.styling));
   const stateLabel = getLabelForValue(STATE_OPTIONS, String(config.stateManagement));
+  const routingLabel = config.routing ? pc.green('Yes') : pc.dim('No');
+  const i18nLabel = config.i18n ? pc.green('Yes') : pc.dim('No');
+  const themeLabel = getLabelForValue(THEME_OPTIONS, String(config.theme));
+  const angularModeLabel = config.angularMode ? getLabelForValue(ANGULAR_MODE_OPTIONS, String(config.angularMode)) : '';
   const extrasStr = (config.extras as string[]).map((e) => getLabelForValue(EXTRAS_OPTIONS, e)).join(', ') || pc.dim('none');
 
-  p.log.message(
+  let summary =
     `\n` +
     `  ${pc.dim('Project')}     ${pc.bold(pc.white(config.projectName))}\n` +
     `  ${pc.dim('Template')}    ${pc.cyan(templateLabel)}\n` +
-    `  ${pc.dim('Framework')}   ${pc.cyan(frameworkLabel)}\n` +
+    `  ${pc.dim('Framework')}   ${pc.cyan(frameworkLabel)}\n`;
+  if (config.angularMode) {
+    summary += `  ${pc.dim('Mode')}        ${pc.cyan(angularModeLabel)}\n`;
+  }
+  summary +=
     `  ${pc.dim('Paradigm')}    ${pc.cyan(paradigmLabel)}\n` +
     `  ${pc.dim('Styling')}     ${pc.cyan(stylingLabel)}\n` +
     `  ${pc.dim('State')}       ${pc.cyan(stateLabel)}\n` +
-    `  ${pc.dim('Extras')}      ${pc.cyan(extrasStr)}`
-  );
+    `  ${pc.dim('Routing')}     ${routingLabel}\n` +
+    `  ${pc.dim('i18n')}        ${i18nLabel}\n` +
+    `  ${pc.dim('Theme')}       ${pc.cyan(themeLabel)}\n` +
+    `  ${pc.dim('Extras')}      ${pc.cyan(extrasStr)}`;
+
+  p.log.message(summary);
 
   const spinner = p.spinner();
   spinner.start('Scaffolding project...');

@@ -9,7 +9,7 @@ const __dirname = path.dirname(__filename);
 const TEMPLATES_DIR = path.resolve(__dirname, '..', 'templates');
 
 export async function generateProject(config: ProjectConfig): Promise<void> {
-  const { targetDir, framework, templateType, paradigm, styling, stateManagement, extras, projectName } = config;
+  const { targetDir, framework, templateType, paradigm, styling, stateManagement, routing, i18n, theme, angularMode, extras, projectName } = config;
 
   await fs.ensureDir(targetDir);
 
@@ -17,6 +17,14 @@ export async function generateProject(config: ProjectConfig): Promise<void> {
   const frameworkDir = path.join(TEMPLATES_DIR, framework);
   if (await fs.pathExists(frameworkDir)) {
     await copyTemplateDir(frameworkDir, targetDir, { projectName });
+  }
+
+  // Layer 1.5: Angular mode overlay (modules vs standalone)
+  if (framework === 'angular' && angularMode && angularMode !== 'standalone') {
+    const angularModeDir = path.join(TEMPLATES_DIR, 'angular-mode', angularMode);
+    if (await fs.pathExists(angularModeDir)) {
+      await applyOverlayWithDeps(angularModeDir, targetDir, config);
+    }
   }
 
   // Layer 2: Template type overlay
@@ -57,7 +65,34 @@ export async function generateProject(config: ProjectConfig): Promise<void> {
     );
   }
 
-  // Layer 6: Extras
+  // Layer 5.5: Routing overlay
+  if (routing) {
+    await applyOverlayWithDeps(
+      path.join(TEMPLATES_DIR, 'routing'),
+      targetDir,
+      config
+    );
+  }
+
+  // Layer 6: i18n overlay
+  if (i18n) {
+    await applyOverlayWithDeps(
+      path.join(TEMPLATES_DIR, 'i18n'),
+      targetDir,
+      config
+    );
+  }
+
+  // Layer 6.5: Theme overlay
+  if (theme) {
+    await applyOverlayWithDeps(
+      path.join(TEMPLATES_DIR, 'theme', theme),
+      targetDir,
+      config
+    );
+  }
+
+  // Layer 7: Extras
   for (const extra of extras) {
     await applyOverlayWithDeps(
       path.join(TEMPLATES_DIR, 'extras', extra),

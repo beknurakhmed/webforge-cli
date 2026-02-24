@@ -18,6 +18,10 @@ export type Paradigm = 'functional' | 'oop';
 
 export type Extra = 'typescript' | 'eslint' | 'prettier';
 
+export type AngularMode = 'standalone' | 'modules';
+
+export type Theme = 'light' | 'dark';
+
 export interface ProjectConfig {
   projectName: string;
   templateType: TemplateType;
@@ -25,6 +29,10 @@ export interface ProjectConfig {
   paradigm: Paradigm;
   styling: Styling;
   stateManagement: StateManagement;
+  routing: boolean;
+  i18n: boolean;
+  theme: Theme;
+  angularMode?: AngularMode;
   extras: Extra[];
   targetDir: string;
 }
