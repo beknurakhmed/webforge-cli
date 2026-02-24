@@ -1,0 +1,76 @@
+.page {
+  max-width: 1200px;
+}
+
+.pageHeader {
+  margin-bottom: 2rem;
+}
+
+.pageHeader h1 {
+  font-size: 1.75rem;
+  color: var(--dark);
+  font-weight: 700;
+}
+
+.pageHeader p {
+  color: var(--text-light);
+  margin-top: 0.25rem;
+}
+
+.dashboardGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.5rem;
+}
+
+.activityCard {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+}
+
+.activityTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 1rem;
+}
+
+.activityList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.activityItem {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.activityIcon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.activityAction {
+  font-weight: 600;
+  color: var(--dark);
+  font-size: 0.9rem;
+}
+
+.activityDetail {
+  font-size: 0.8rem;
+  color: var(--text);
+}
+
+.activityTime {
+  font-size: 0.75rem;
+  color: var(--text-light);
+}
+
+@media (max-width: 768px) {
+  .dashboardGrid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,122 @@
+.blogSidebar {
+  position: sticky;
+  top: 80px;
+}
+
+.sidebarWidget {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  box-shadow: var(--shadow);
+  margin-bottom: 1.25rem;
+}
+
+.sidebarWidget h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 1rem;
+}
+
+.categoryList {
+  list-style: none;
+}
+
+.categoryList li {
+  border-bottom: 1px solid var(--border);
+}
+
+.categoryList li:last-child {
+  border-bottom: none;
+}
+
+.categoryLink {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.6rem 0;
+  font-size: 0.9rem;
+  color: var(--text);
+  transition: color 0.2s;
+}
+
+.categoryLink:hover {
+  color: var(--primary);
+}
+
+.categoryCount {
+  background: var(--bg);
+  padding: 0.1rem 0.5rem;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-light);
+}
+
+.popularList {
+  list-style: none;
+}
+
+.popularLink {
+  display: block;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.popularList li:last-child .popularLink {
+  border-bottom: none;
+}
+
+.popularTitle {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--dark);
+  display: block;
+}
+
+.popularDate {
+  font-size: 0.75rem;
+  color: var(--text-light);
+}
+
+.newsletterWidget p {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin-bottom: 0.75rem;
+}
+
+.newsletterInput {
+  width: 100%;
+  padding: 0.625rem 0.875rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+}
+
+.newsletterInput:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.625rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+  font-size: 0.9rem;
+}
+
+.btnPrimary {
+  composes: btn;
+  background: var(--primary);
+  color: var(--white);
+  width: 100%;
+  text-align: center;
+}
+
+.btnPrimary:hover {
+  background: var(--primary-hover);
+}

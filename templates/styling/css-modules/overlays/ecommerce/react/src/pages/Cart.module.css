@@ -1,0 +1,150 @@
+.cartPage h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 1.5rem;
+}
+
+.cartEmpty {
+  text-align: center;
+  padding: 3rem;
+  color: #6b7280;
+}
+
+.cartEmpty p {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.continueLink {
+  color: #4f46e5;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.continueLink:hover {
+  text-decoration: underline;
+}
+
+.cartLayout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 2rem;
+}
+
+.cartItemsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.cartRow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.cartRowImage {
+  font-size: 2.5rem;
+}
+
+.cartRowInfo {
+  flex: 1;
+}
+
+.cartRowInfo a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.cartRowInfo h4 {
+  margin: 0;
+  font-size: 1rem;
+  color: #111827;
+}
+
+.cartRowInfo p {
+  color: #6b7280;
+  font-size: 0.85rem;
+  margin: 0.25rem 0 0;
+}
+
+.cartRowPrice {
+  font-weight: 700;
+  color: #111827;
+  font-size: 1rem;
+  min-width: 70px;
+  text-align: right;
+}
+
+.cartRowRemove {
+  background: none;
+  border: none;
+  color: #ef4444;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.cartRowRemove:hover {
+  text-decoration: underline;
+}
+
+.cartSummary {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.5rem;
+  height: fit-content;
+}
+
+.cartSummary h3 {
+  font-size: 1.1rem;
+  color: #111827;
+  margin: 0 0 1rem;
+}
+
+.summaryRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  color: #374151;
+  font-size: 0.95rem;
+}
+
+.summaryRowTotal {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  color: #374151;
+  font-size: 0.95rem;
+  border-top: 1px solid #e5e7eb;
+  margin-top: 0.5rem;
+  padding-top: 1rem;
+  font-size: 1.1rem;
+}
+
+.checkoutBtn {
+  width: 100%;
+  background: #4f46e5;
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.checkoutBtn:hover {
+  background: #4338ca;
+}
+
+@media (max-width: 768px) {
+  .cartLayout {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,44 @@
+.blogHeader {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.headerContent {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.25rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.blogTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+  text-decoration: none;
+}
+
+.blogNav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navLink {
+  text-decoration: none;
+  color: #6b7280;
+  font-weight: 500;
+  transition: color 0.15s;
+}
+
+.navLink:hover,
+.navLinkActive {
+  color: #4f46e5;
+}
+
+@media (max-width: 768px) {
+  .headerContent {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}

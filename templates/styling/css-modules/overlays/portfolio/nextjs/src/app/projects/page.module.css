@@ -1,0 +1,72 @@
+.projectsPage {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.projectsHeader {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.projectsHeader h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--dark);
+}
+
+.projectsHeader p {
+  color: var(--text-light);
+  margin-top: 0.5rem;
+}
+
+.filterGroup {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.filterBtn {
+  padding: 0.5rem 1.25rem;
+  border: 2px solid var(--border);
+  border-radius: 50px;
+  background: var(--white);
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--text);
+  transition: all 0.2s;
+  font-size: 0.85rem;
+}
+
+.filterBtn:hover {
+  background: var(--primary);
+  color: var(--white);
+  border-color: var(--primary);
+}
+
+.filterBtnActive {
+  composes: filterBtn;
+  background: var(--primary);
+  color: var(--white);
+  border-color: var(--primary);
+}
+
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-light);
+}
+
+@media (max-width: 768px) {
+  .projectsGrid {
+    grid-template-columns: 1fr;
+  }
+}

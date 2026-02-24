@@ -1,0 +1,93 @@
+'use client';
+
+import styled from 'styled-components';
+
+const StyledFooter = styled.footer`
+  background: #111827;
+  color: #d1d5db;
+  padding: 4rem 2rem 2rem;
+`;
+
+const FooterContent = styled.div`
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 4rem;
+  flex-wrap: wrap;
+`;
+
+const FooterBrand = styled.div`
+  h3 {
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+`;
+
+const FooterLinks = styled.div`
+  display: flex;
+  gap: 4rem;
+`;
+
+const FooterCol = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  h4 {
+    color: white;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  a {
+    color: #9ca3af;
+    text-decoration: none;
+
+    &:hover {
+      color: white;
+    }
+  }
+`;
+
+const FooterBottom = styled.div`
+  border-top: 1px solid #374151;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  text-align: center;
+
+  p {
+    font-size: 0.875rem;
+    color: #6b7280;
+  }
+`;
+
+export function Footer() {
+  return (
+    <StyledFooter>
+      <FooterContent>
+        <FooterBrand>
+          <h3>{'{{projectName}}'}</h3>
+          <p>Building the future of the web.</p>
+        </FooterBrand>
+        <FooterLinks>
+          <FooterCol>
+            <h4>Product</h4>
+            <a href="#features">Features</a>
+            <a href="#cta">Pricing</a>
+          </FooterCol>
+          <FooterCol>
+            <h4>Company</h4>
+            <a href="#">About</a>
+            <a href="#">Blog</a>
+          </FooterCol>
+        </FooterLinks>
+      </FooterContent>
+      <FooterBottom>
+        <p>&copy; 2025 {'{{projectName}}'}. All rights reserved.</p>
+      </FooterBottom>
+    </StyledFooter>
+  );
+}

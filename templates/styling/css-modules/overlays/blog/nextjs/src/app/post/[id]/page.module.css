@@ -1,0 +1,165 @@
+.postDetailPage {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.blogLayout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.postArticle {
+  max-width: 100%;
+}
+
+.backLink {
+  display: inline-block;
+  color: var(--primary);
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.backLink:hover {
+  text-decoration: underline;
+}
+
+.postDetailHeader {
+  margin-bottom: 2rem;
+}
+
+.postDetailHeader h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--dark);
+  margin: 0.75rem 0;
+  line-height: 1.3;
+}
+
+.postCategory {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: #eef2ff;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+}
+
+.postDetailMeta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.postAuthor {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.authorAvatar {
+  font-size: 1.2rem;
+}
+
+.authorName {
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.postDate {
+  color: var(--text-light);
+}
+
+.postReadTime {
+  font-size: 0.8rem;
+  color: var(--text-light);
+}
+
+.postHeroImage {
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 6rem;
+  background: linear-gradient(135deg, #eef2ff, #e0e7ff);
+  border-radius: var(--radius);
+  margin-bottom: 2rem;
+}
+
+.postBody {
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.postBody p {
+  margin-bottom: 1.25rem;
+}
+
+.postTags {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.tag {
+  background: #eef2ff;
+  color: var(--primary);
+  padding: 0.3rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.notFound {
+  text-align: center;
+  padding: 3rem 1.5rem;
+}
+
+.notFound h2 {
+  color: var(--dark);
+  margin-bottom: 0.5rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.625rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+  font-size: 0.9rem;
+}
+
+.btnPrimary {
+  composes: btn;
+  background: var(--primary);
+  color: var(--white);
+}
+
+.btnPrimary:hover {
+  background: var(--primary-hover);
+}
+
+@media (max-width: 768px) {
+  .blogLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .postDetailHeader h1 {
+    font-size: 1.5rem;
+  }
+
+  .postHeroImage {
+    height: 200px;
+    font-size: 4rem;
+  }
+}

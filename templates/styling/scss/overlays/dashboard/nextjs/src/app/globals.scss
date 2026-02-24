@@ -1,0 +1,749 @@
+// ==========================================
+// Dashboard Styles (Next.js)
+// ==========================================
+
+// Variables
+$primary: #4f46e5;
+$primary-hover: #4338ca;
+$primary-light: #818cf8;
+$dark: #111827;
+$dark-secondary: #1f2937;
+$text: #374151;
+$text-light: #6b7280;
+$text-muted: #9ca3af;
+$bg: #f3f4f6;
+$bg-light: #f9fafb;
+$white: #ffffff;
+$border: #e5e7eb;
+$border-light: #f3f4f6;
+$radius: 12px;
+$radius-sm: 8px;
+$shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+$shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+$sidebar-width: 260px;
+
+// ==========================================
+// Reset
+// ==========================================
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: $text;
+  background: $bg;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+// ==========================================
+// Dashboard Layout
+// ==========================================
+.dashboard-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.dashboard-main {
+  flex: 1;
+  margin-left: $sidebar-width;
+  padding: 2rem;
+  overflow-x: hidden;
+}
+
+// ==========================================
+// Sidebar
+// ==========================================
+.sidebar {
+  width: $sidebar-width;
+  background: $dark;
+  color: $white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+}
+
+.sidebar-header {
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-bottom: 1px solid $dark-secondary;
+}
+
+.sidebar-logo {
+  font-size: 1.5rem;
+}
+
+.sidebar-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.sidebar-nav {
+  flex: 1;
+  padding: 1rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: $radius-sm;
+  color: $text-muted;
+  transition: all 0.2s;
+  font-weight: 500;
+
+  &:hover {
+    background: $dark-secondary;
+    color: $white;
+  }
+
+  &.active {
+    background: $primary;
+    color: $white;
+  }
+}
+
+.sidebar-icon {
+  font-size: 1.2rem;
+}
+
+.sidebar-footer {
+  padding: 1rem 1.25rem;
+  border-top: 1px solid $dark-secondary;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.user-avatar {
+  font-size: 1.5rem;
+}
+
+.user-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: $white;
+}
+
+.user-role {
+  font-size: 0.75rem;
+  color: $text-muted;
+}
+
+// ==========================================
+// Page
+// ==========================================
+.page {
+  max-width: 1200px;
+}
+
+.page-header {
+  margin-bottom: 2rem;
+
+  h1 {
+    font-size: 1.75rem;
+    color: $dark;
+    font-weight: 700;
+  }
+
+  p {
+    color: $text-light;
+    margin-top: 0.25rem;
+  }
+}
+
+// ==========================================
+// KPI Cards
+// ==========================================
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.kpi-card {
+  background: $white;
+  padding: 1.5rem;
+  border-radius: $radius;
+  box-shadow: $shadow;
+}
+
+.kpi-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.kpi-icon {
+  font-size: 1.5rem;
+}
+
+.kpi-change {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.2rem 0.5rem;
+  border-radius: 20px;
+
+  &.up {
+    color: #059669;
+    background: #d1fae5;
+  }
+
+  &.down {
+    color: #dc2626;
+    background: #fee2e2;
+  }
+}
+
+.kpi-value {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: $dark;
+}
+
+.kpi-title {
+  font-size: 0.85rem;
+  color: $text-light;
+  margin-top: 0.25rem;
+}
+
+// ==========================================
+// Charts
+// ==========================================
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.chart-card {
+  background: $white;
+  padding: 1.5rem;
+  border-radius: $radius;
+  box-shadow: $shadow;
+}
+
+.chart-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: $dark;
+  margin-bottom: 1.25rem;
+}
+
+.chart-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+  height: 200px;
+  padding-top: 1rem;
+}
+
+.chart-bar-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: flex-end;
+}
+
+.chart-bar {
+  width: 100%;
+  background: linear-gradient(to top, $primary, $primary-light);
+  border-radius: 4px 4px 0 0;
+  transition: height 0.3s;
+  min-height: 4px;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.chart-label {
+  font-size: 0.65rem;
+  color: $text-light;
+  margin-top: 0.35rem;
+}
+
+.chart-line-placeholder {
+  padding: 0.5rem 0;
+}
+
+.chart-svg {
+  width: 100%;
+  height: 150px;
+}
+
+.chart-pie-placeholder {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem 0;
+}
+
+.pie-chart {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.pie-segment {
+  padding: 1rem;
+  border-radius: $radius-sm;
+  color: $white;
+  font-weight: 700;
+  font-size: 0.9rem;
+  background: var(--segment-color);
+}
+
+.pie-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: $text;
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+// ==========================================
+// Data Table
+// ==========================================
+.table-card {
+  background: $white;
+  border-radius: $radius;
+  box-shadow: $shadow;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.table-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: $dark;
+  padding: 1.25rem 1.5rem 0;
+  margin-bottom: 1rem;
+}
+
+.table-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.search-input {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: $bg;
+  border-radius: $radius-sm;
+  padding: 0.5rem 1rem;
+  flex: 1;
+  max-width: 300px;
+
+  input {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 0.9rem;
+    width: 100%;
+  }
+}
+
+.filter-group {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.filter-btn {
+  padding: 0.4rem 0.85rem;
+  border: 1px solid $border;
+  border-radius: 6px;
+  background: $white;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: $text;
+  transition: all 0.2s;
+
+  &:hover,
+  &.active {
+    background: $primary;
+    color: $white;
+    border-color: $primary;
+  }
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  th {
+    text-align: left;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: $text-light;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid $border;
+    background: $bg;
+  }
+
+  td {
+    padding: 0.875rem 1.5rem;
+    font-size: 0.9rem;
+    border-bottom: 1px solid $border;
+  }
+
+  tbody tr:hover {
+    background: $bg-light;
+  }
+}
+
+.order-id {
+  font-weight: 600;
+  color: $primary;
+}
+
+.amount {
+  font-weight: 600;
+}
+
+.date {
+  color: $text-light;
+}
+
+.user-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.user-cell-avatar {
+  font-size: 1.25rem;
+}
+
+// ==========================================
+// Status & Role Badges
+// ==========================================
+.status-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+
+  &.completed,
+  &.active {
+    background: #d1fae5;
+    color: #059669;
+  }
+
+  &.pending {
+    background: #fef3c7;
+    color: #d97706;
+  }
+
+  &.processing {
+    background: #dbeafe;
+    color: #2563eb;
+  }
+
+  &.cancelled,
+  &.inactive {
+    background: #fee2e2;
+    color: #dc2626;
+  }
+}
+
+.role-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+
+  &.admin {
+    background: #ede9fe;
+    color: #7c3aed;
+  }
+
+  &.editor {
+    background: #dbeafe;
+    color: #2563eb;
+  }
+
+  &.viewer {
+    background: $bg-light;
+    color: $text-light;
+  }
+}
+
+// ==========================================
+// Progress Bar
+// ==========================================
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: $bg;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: $primary;
+  border-radius: 4px;
+  transition: width 0.3s;
+}
+
+// ==========================================
+// Settings
+// ==========================================
+.settings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 1.5rem;
+}
+
+.settings-card {
+  background: $white;
+  padding: 1.5rem;
+  border-radius: $radius;
+  box-shadow: $shadow;
+
+  h3 {
+    font-size: 1.1rem;
+    color: $dark;
+    margin-bottom: 1.25rem;
+  }
+}
+
+.form-group {
+  margin-bottom: 1rem;
+
+  label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: $text;
+    margin-bottom: 0.35rem;
+  }
+
+  input,
+  select {
+    width: 100%;
+    padding: 0.625rem 0.875rem;
+    border: 1px solid $border;
+    border-radius: $radius-sm;
+    font-size: 0.9rem;
+    color: $text;
+    background: $white;
+
+    &:focus {
+      outline: none;
+      border-color: $primary;
+      box-shadow: 0 0 0 3px rgba($primary, 0.1);
+    }
+  }
+}
+
+.toggle-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.toggle-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toggle-label {
+  font-weight: 600;
+  color: $dark;
+  font-size: 0.9rem;
+}
+
+.toggle-desc {
+  font-size: 0.8rem;
+  color: $text-light;
+}
+
+.toggle-switch {
+  width: 48px;
+  height: 26px;
+  border-radius: 13px;
+  border: none;
+  background: #d1d5db;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.2s;
+
+  &.active {
+    background: $primary;
+  }
+}
+
+.toggle-knob {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: $white;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  transition: transform 0.2s;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+
+  .toggle-switch.active & {
+    transform: translateX(22px);
+  }
+}
+
+.theme-options {
+  display: flex;
+  gap: 1rem;
+}
+
+.theme-option {
+  text-align: center;
+  cursor: pointer;
+
+  &.active .theme-preview {
+    border-color: $primary;
+    box-shadow: 0 0 0 3px rgba($primary, 0.2);
+  }
+
+  span {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: $text;
+  }
+}
+
+.theme-preview {
+  width: 80px;
+  height: 55px;
+  border-radius: $radius-sm;
+  border: 2px solid $border;
+  margin-bottom: 0.35rem;
+
+  &.light {
+    background: $white;
+  }
+
+  &.dark {
+    background: $dark-secondary;
+  }
+
+  &.system {
+    background: linear-gradient(135deg, $white 50%, $dark-secondary 50%);
+  }
+}
+
+// ==========================================
+// Buttons
+// ==========================================
+.btn {
+  display: inline-block;
+  padding: 0.625rem 1.5rem;
+  border-radius: $radius-sm;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+  font-size: 0.9rem;
+
+  &-primary {
+    background: $primary;
+    color: $white;
+
+    &:hover {
+      background: $primary-hover;
+    }
+  }
+}
+
+// ==========================================
+// Responsive
+// ==========================================
+@media (max-width: 768px) {
+  .sidebar {
+    width: 70px;
+    overflow: hidden;
+  }
+
+  .sidebar-title,
+  .sidebar-link span:not(.sidebar-icon),
+  .user-info div,
+  .user-name,
+  .user-role {
+    display: none;
+  }
+
+  .sidebar-header {
+    justify-content: center;
+  }
+
+  .sidebar-link {
+    justify-content: center;
+    padding: 0.75rem;
+  }
+
+  .dashboard-main {
+    margin-left: 70px;
+    padding: 1rem;
+  }
+
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .settings-grid {
+    grid-template-columns: 1fr;
+  }
+}

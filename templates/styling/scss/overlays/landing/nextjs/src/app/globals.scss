@@ -1,0 +1,317 @@
+// ==========================================
+// Landing Page Styles (Next.js)
+// ==========================================
+
+// Variables
+$primary: #4f46e5;
+$primary-hover: #4338ca;
+$dark: #111827;
+$dark-secondary: #1f2937;
+$text: #213547;
+$text-light: #6b7280;
+$text-muted: #9ca3af;
+$bg-light: #f9fafb;
+$border: #e5e7eb;
+$border-dark: #374151;
+$white: white;
+$radius-md: 8px;
+$radius-lg: 12px;
+$max-width: 1200px;
+
+// ==========================================
+// Reset
+// ==========================================
+:root {
+  font-family: Inter, system-ui, sans-serif;
+  line-height: 1.5;
+  color: $text;
+  background: $white;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+}
+
+// ==========================================
+// Layout
+// ==========================================
+.landing {
+  min-height: 100vh;
+}
+
+// ==========================================
+// Navigation
+// ==========================================
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  max-width: $max-width;
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: $white;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+
+  a {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    font-weight: 500;
+  }
+}
+
+// ==========================================
+// Hero Section
+// ==========================================
+.hero {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: $white;
+  padding-bottom: 4rem;
+}
+
+.hero-content {
+  text-align: center;
+  padding: 4rem 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+
+  h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+  }
+
+  p {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    margin-bottom: 2rem;
+  }
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+// ==========================================
+// Buttons
+// ==========================================
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: $radius-md;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 2px solid transparent;
+
+  &-primary {
+    background: $primary;
+    color: $white;
+    border-color: $primary;
+  }
+
+  &-secondary {
+    background: transparent;
+    color: $white;
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+
+  &-large {
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+  }
+}
+
+// ==========================================
+// Features Section
+// ==========================================
+.features {
+  padding: 5rem 2rem;
+  max-width: $max-width;
+  margin: 0 auto;
+  text-align: center;
+
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.features-subtitle {
+  color: $text-light;
+  margin-bottom: 3rem;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  text-align: left;
+}
+
+.feature-card {
+  padding: 2rem;
+  border-radius: $radius-lg;
+  border: 1px solid $border;
+  transition: all 0.2s;
+
+  &:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    color: $text-light;
+    line-height: 1.6;
+  }
+}
+
+.feature-icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+// ==========================================
+// CTA Section
+// ==========================================
+.cta {
+  background: $bg-light;
+  padding: 5rem 2rem;
+  text-align: center;
+
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    color: $text-light;
+    margin-bottom: 2rem;
+  }
+}
+
+.cta-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.cta-note {
+  font-size: 0.875rem;
+  color: $text-muted;
+}
+
+// ==========================================
+// Footer
+// ==========================================
+.footer {
+  background: $dark;
+  color: #d1d5db;
+  padding: 4rem 2rem 2rem;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  max-width: $max-width;
+  margin: 0 auto;
+  gap: 4rem;
+  flex-wrap: wrap;
+}
+
+.footer-brand {
+  h3 {
+    color: $white;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.footer-links {
+  display: flex;
+  gap: 4rem;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  h4 {
+    color: $white;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  a {
+    color: $text-muted;
+    text-decoration: none;
+
+    &:hover {
+      color: $white;
+    }
+  }
+}
+
+.footer-bottom {
+  border-top: 1px solid $border-dark;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  text-align: center;
+
+  p {
+    font-size: 0.875rem;
+    color: $text-light;
+  }
+}
+
+// ==========================================
+// Dark Mode
+// ==========================================
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: rgba(255, 255, 255, 0.87);
+    background: #242424;
+  }
+
+  .features h2,
+  .feature-card h3,
+  .cta h2 {
+    color: rgba(255, 255, 255, 0.87);
+  }
+
+  .feature-card {
+    border-color: $border-dark;
+  }
+
+  .cta {
+    background: $dark-secondary;
+  }
+}

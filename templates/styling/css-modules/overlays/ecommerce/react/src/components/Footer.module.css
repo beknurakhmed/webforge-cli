@@ -1,0 +1,76 @@
+.storeFooter {
+  background: #111827;
+  color: #d1d5db;
+  padding: 3rem 2rem 1.5rem;
+  margin-top: auto;
+}
+
+.footerContent {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.footerBrand h3 {
+  color: white;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.footerLinks {
+  display: flex;
+  gap: 3rem;
+}
+
+.footerCol {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footerCol h4 {
+  color: white;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+}
+
+.footerCol a {
+  color: #9ca3af;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.footerCol a:hover {
+  color: white;
+}
+
+.footerBottom {
+  border-top: 1px solid #374151;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  text-align: center;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footerBottom p {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+@media (max-width: 768px) {
+  .footerContent {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .footerLinks {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}

@@ -1,0 +1,129 @@
+// ==========================================
+// Global Styles - CRM (Angular)
+// ==========================================
+
+// Variables
+$primary: #4f46e5;
+$primary-hover: #4338ca;
+$primary-bg: #eef2ff;
+$dark: #111827;
+$text: #374151;
+$text-light: #6b7280;
+$text-muted: #9ca3af;
+$bg: #f9fafb;
+$white: #ffffff;
+$border: #e5e7eb;
+$success: #10b981;
+$danger: #ef4444;
+$warning: #f59e0b;
+$info: #3b82f6;
+$radius: 8px;
+$font-stack: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+// ==========================================
+// Reset & Base
+// ==========================================
+:root {
+  font-family: $font-stack;
+  line-height: 1.5;
+  font-weight: 400;
+  color: $text;
+  background-color: $bg;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: $font-stack;
+  color: $text;
+  background: $bg;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+// ==========================================
+// Status Badges
+// ==========================================
+.status-badge {
+  display: inline-block;
+  padding: 0.15rem 0.6rem;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.status-lead {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.status-prospect {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.status-customer {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.status-churned {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+// ==========================================
+// Stage Badges
+// ==========================================
+.stage-badge {
+  display: inline-block;
+  padding: 0.15rem 0.6rem;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.stage-discovery {
+  background: #e0e7ff;
+  color: #3730a3;
+}
+
+.stage-proposal {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.stage-negotiation {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.stage-closed-won {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.stage-closed-lost {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+// ==========================================
+// Dark Mode
+// ==========================================
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #242424;
+  }
+}

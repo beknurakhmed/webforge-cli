@@ -1,0 +1,35 @@
+.chartCard {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid #e5e7eb;
+}
+
+.chartCard h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 1rem;
+  color: #111827;
+}
+
+.chartPlaceholder {
+  height: 200px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.chartBars {
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+  height: 100%;
+  width: 100%;
+}
+
+.chartBar {
+  flex: 1;
+  background: linear-gradient(to top, #4f46e5, #818cf8);
+  border-radius: 4px 4px 0 0;
+  transition: height 0.3s;
+  min-width: 12px;
+}

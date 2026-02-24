@@ -1,0 +1,512 @@
+// ==========================================
+// Dashboard Styles
+// ==========================================
+
+// Variables
+$primary: #4f46e5;
+$primary-hover: #4338ca;
+$primary-light: #818cf8;
+$primary-bg: #ede9fe;
+$dark: #111827;
+$dark-secondary: #1f2937;
+$text: #374151;
+$text-light: #6b7280;
+$text-muted: #9ca3af;
+$bg-light: #f9fafb;
+$bg-page: #f9fafb;
+$white: white;
+$border: #e5e7eb;
+$border-dark: #d1d5db;
+$border-light: #f3f4f6;
+$success: #10b981;
+$danger: #ef4444;
+$radius-sm: 6px;
+$radius-md: 8px;
+$radius-lg: 12px;
+$radius-full: 9999px;
+$sidebar-width: 240px;
+
+// ==========================================
+// Layout
+// ==========================================
+.dashboard-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.dashboard-main {
+  flex: 1;
+  background: $bg-page;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+// ==========================================
+// Sidebar
+// ==========================================
+.sidebar {
+  width: $sidebar-width;
+  background: $dark;
+  color: $white;
+  padding: 1.5rem;
+  flex-shrink: 0;
+}
+
+.sidebar-logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 2rem;
+  color: $primary;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border-radius: $radius-md;
+  color: $text-muted;
+  text-decoration: none;
+  transition: all 0.2s;
+  font-size: 0.95rem;
+
+  &:hover {
+    background: $dark-secondary;
+    color: $white;
+  }
+
+  &.active {
+    background: $primary;
+    color: $white;
+  }
+}
+
+.sidebar-icon {
+  font-size: 1.1rem;
+}
+
+// ==========================================
+// Page Header
+// ==========================================
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+
+  h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: $dark;
+    margin: 0 0 1.5rem;
+  }
+}
+
+.page-overview h1,
+.page-analytics h1,
+.page-settings h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: $dark;
+  margin: 0 0 1.5rem;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.search-input {
+  padding: 0.5rem 1rem;
+  border: 1px solid $border-dark;
+  border-radius: $radius-md;
+  font-size: 0.9rem;
+}
+
+.user-avatar {
+  width: 36px;
+  height: 36px;
+  background: $primary;
+  color: $white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.primary-btn {
+  background: $primary;
+  color: $white;
+  border: none;
+  padding: 0.6rem 1.25rem;
+  border-radius: $radius-md;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+
+  &:hover {
+    background: $primary-hover;
+  }
+}
+
+// ==========================================
+// KPI Cards
+// ==========================================
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.kpi-card {
+  background: $white;
+  border-radius: $radius-lg;
+  padding: 1.5rem;
+  border: 1px solid $border;
+}
+
+.kpi-label {
+  font-size: 0.85rem;
+  color: $text-light;
+  font-weight: 500;
+}
+
+.kpi-value {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0.25rem 0;
+  color: $dark;
+}
+
+.kpi-change {
+  font-size: 0.8rem;
+
+  &.positive {
+    color: $success;
+  }
+
+  &.negative {
+    color: $danger;
+  }
+}
+
+// ==========================================
+// Charts
+// ==========================================
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.chart-card {
+  background: $white;
+  border-radius: $radius-lg;
+  padding: 1.5rem;
+  border: 1px solid $border;
+
+  h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 0 1rem;
+    color: $dark;
+  }
+}
+
+.chart-placeholder {
+  height: 200px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.chart-bars {
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+  height: 100%;
+  width: 100%;
+}
+
+.chart-bar {
+  flex: 1;
+  background: linear-gradient(to top, $primary, $primary-light);
+  border-radius: 4px 4px 0 0;
+  transition: height 0.3s;
+  min-width: 12px;
+}
+
+// ==========================================
+// Analytics Metrics
+// ==========================================
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.metric-card {
+  background: $white;
+  border-radius: $radius-lg;
+  padding: 1.25rem;
+  border: 1px solid $border;
+}
+
+.metric-label {
+  font-size: 0.8rem;
+  color: $text-light;
+  font-weight: 500;
+}
+
+.metric-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: $dark;
+  margin: 0.25rem 0;
+}
+
+.metric-change {
+  font-size: 0.8rem;
+  color: $success;
+  font-weight: 500;
+}
+
+// ==========================================
+// Table
+// ==========================================
+.table-card {
+  background: $white;
+  border-radius: $radius-lg;
+  border: 1px solid $border;
+  overflow: hidden;
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+
+  h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: $dark;
+  }
+}
+
+.table-btn {
+  background: none;
+  border: 1px solid $border-dark;
+  padding: 0.4rem 1rem;
+  border-radius: $radius-sm;
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: $text;
+
+  &:hover {
+    background: $bg-light;
+  }
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  th {
+    text-align: left;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.8rem;
+    color: $text-light;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-top: 1px solid $border;
+    background: $bg-light;
+  }
+
+  td {
+    padding: 0.75rem 1.5rem;
+    border-top: 1px solid $border-light;
+    font-size: 0.9rem;
+    color: $text;
+  }
+}
+
+.status-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: $radius-full;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.status-completed,
+.status-active {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.status-processing {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.status-cancelled,
+.status-inactive {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+// ==========================================
+// Users Page
+// ==========================================
+.user-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.table-avatar {
+  font-size: 1.5rem;
+}
+
+.role-badge {
+  padding: 0.2rem 0.6rem;
+  border-radius: $radius-sm;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: $primary-bg;
+  color: $primary;
+}
+
+// ==========================================
+// Settings Page
+// ==========================================
+.settings-card {
+  background: $white;
+  border-radius: $radius-lg;
+  padding: 1.5rem;
+  border: 1px solid $border;
+  margin-bottom: 1.5rem;
+
+  h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: $dark;
+    margin: 0 0 1.25rem;
+  }
+}
+
+.form-group {
+  margin-bottom: 1rem;
+
+  label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: $text;
+    margin-bottom: 0.4rem;
+  }
+}
+
+.form-input {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid $border-dark;
+  border-radius: $radius-md;
+  font-size: 0.9rem;
+  color: $dark;
+
+  &:focus {
+    outline: none;
+    border-color: $primary;
+    box-shadow: 0 0 0 3px rgba($primary, 0.1);
+  }
+}
+
+.form-toggle {
+  margin-bottom: 0.75rem;
+
+  label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: $text;
+  }
+
+  input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: $primary;
+    cursor: pointer;
+  }
+}
+
+// ==========================================
+// Responsive
+// ==========================================
+@media (max-width: 768px) {
+  .dashboard-layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .sidebar-nav {
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 0.5rem;
+  }
+
+  .sidebar-item {
+    white-space: nowrap;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .dashboard-main {
+    padding: 16px;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .data-table {
+    font-size: 0.8rem;
+
+    th,
+    td {
+      padding: 0.5rem 0.75rem;
+    }
+  }
+}

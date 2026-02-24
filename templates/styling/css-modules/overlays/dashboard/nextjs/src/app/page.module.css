@@ -1,0 +1,31 @@
+.page {
+  max-width: 1200px;
+}
+
+.pageHeader {
+  margin-bottom: 2rem;
+}
+
+.pageHeader h1 {
+  font-size: 1.75rem;
+  color: var(--dark);
+  font-weight: 700;
+}
+
+.pageHeader p {
+  color: var(--text-light);
+  margin-top: 0.25rem;
+}
+
+.chartsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+  .chartsGrid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,45 @@
+.portfolioNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+  text-decoration: none;
+}
+
+.navLinks {
+  display: flex;
+  gap: 2rem;
+}
+
+.navLink {
+  color: #6b7280;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.15s;
+}
+
+.navLink:hover,
+.navLinkActive {
+  color: #4f46e5;
+}
+
+@media (max-width: 768px) {
+  .navLinks {
+    gap: 1rem;
+  }
+
+  .portfolioNav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}

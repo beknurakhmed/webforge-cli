@@ -1,0 +1,85 @@
+.categoryPage {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.categoryHeader {
+  margin-bottom: 2rem;
+}
+
+.backLink {
+  display: inline-block;
+  color: var(--primary);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.backLink:hover {
+  text-decoration: underline;
+}
+
+.categoryHeader h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin: 0.5rem 0 0.25rem;
+}
+
+.categoryHeader p {
+  color: var(--text-light);
+}
+
+.blogLayout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.postsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 3rem 1.5rem;
+}
+
+.emptyState p {
+  color: var(--text-light);
+  margin-bottom: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.625rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+  font-size: 0.9rem;
+}
+
+.btnPrimary {
+  composes: btn;
+  background: var(--primary);
+  color: var(--white);
+}
+
+.btnPrimary:hover {
+  background: var(--primary-hover);
+}
+
+@media (max-width: 768px) {
+  .blogLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .postsGrid {
+    grid-template-columns: 1fr;
+  }
+}

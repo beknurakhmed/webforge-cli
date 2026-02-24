@@ -1,0 +1,11 @@
+.footer { background: #111827; color: #d1d5db; padding: 4rem 2rem 2rem; }
+.footerContent { display: flex; justify-content: space-between; max-width: 1200px; margin: 0 auto; gap: 4rem; flex-wrap: wrap; }
+.footerBrand h3 { color: white; font-size: 1.5rem; margin-bottom: 0.5rem; }
+.footerLinks { display: flex; gap: 4rem; }
+.footerCol { display: flex; flex-direction: column; gap: 0.5rem; }
+.footerCol h4 { color: white; font-size: 0.875rem; text-transform: uppercase; margin-bottom: 0.5rem; }
+.footerCol a { color: #9ca3af; text-decoration: none; }
+.footerCol a:hover { color: white; }
+.footerBottom { border-top: 1px solid #374151; margin-top: 3rem; padding-top: 1.5rem; text-align: center; max-width: 1200px; margin-left: auto; margin-right: auto; }
+.footerBottom p { font-size: 0.875rem; color: #6b7280; }
+@media (max-width: 768px) { .footerContent { flex-direction: column; } }

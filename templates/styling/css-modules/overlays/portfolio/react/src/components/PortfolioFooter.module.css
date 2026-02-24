@@ -1,0 +1,32 @@
+.portfolioFooter {
+  background: #111827;
+  color: #9ca3af;
+  padding: 2rem;
+  text-align: center;
+  margin-top: auto;
+}
+
+.footerContent {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.footerLinks {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.footerLinks a {
+  color: #9ca3af;
+  text-decoration: none;
+}
+
+.footerLinks a:hover {
+  color: white;
+}
+
+.portfolioFooter p {
+  font-size: 0.85rem;
+}

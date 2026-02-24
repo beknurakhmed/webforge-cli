@@ -1,0 +1,96 @@
+.chartCard {
+  background: var(--white);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.chartTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 1.25rem;
+}
+
+.chartBars {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+  height: 200px;
+  padding-top: 1rem;
+}
+
+.chartBarWrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: flex-end;
+}
+
+.chartBar {
+  width: 100%;
+  background: linear-gradient(to top, var(--primary), #818cf8);
+  border-radius: 4px 4px 0 0;
+  transition: height 0.3s;
+  min-height: 4px;
+}
+
+.chartLabel {
+  font-size: 0.65rem;
+  color: var(--text-light);
+  margin-top: 0.35rem;
+}
+
+.chartLinePlaceholder {
+  padding: 0.5rem 0;
+}
+
+.chartSvg {
+  width: 100%;
+  height: 150px;
+}
+
+.chartPiePlaceholder {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem 0;
+}
+
+.pieChart {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.pieSegment {
+  padding: 1rem;
+  border-radius: 8px;
+  color: var(--white);
+  font-weight: 700;
+  font-size: 0.9rem;
+  background: var(--segment-color);
+}
+
+.pieLegend {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text);
+}
+
+.legendDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}

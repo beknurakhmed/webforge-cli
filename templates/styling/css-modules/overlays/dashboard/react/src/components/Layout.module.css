@@ -1,0 +1,21 @@
+.dashboardLayout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.dashboardMain {
+  flex: 1;
+  background: #f9fafb;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+  .dashboardLayout {
+    flex-direction: column;
+  }
+
+  .dashboardMain {
+    padding: 16px;
+  }
+}

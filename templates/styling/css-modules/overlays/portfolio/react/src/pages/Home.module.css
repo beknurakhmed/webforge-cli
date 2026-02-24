@@ -1,0 +1,130 @@
+.portfolioHero {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+  color: white;
+  padding: 5rem 2rem;
+}
+
+.heroContent {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.heroGreeting {
+  font-size: 1.1rem;
+  color: #4f46e5;
+  font-weight: 600;
+}
+
+.heroContent h1 {
+  font-size: 4rem;
+  font-weight: 800;
+  margin: 0.5rem 0;
+}
+
+.heroRole {
+  font-size: 1.25rem;
+  color: #94a3b8;
+  margin-bottom: 1rem;
+}
+
+.heroDesc {
+  color: #cbd5e1;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.heroActions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.btnPrimary {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 2px solid #4f46e5;
+  background: #4f46e5;
+  color: white;
+  display: inline-block;
+}
+
+.btnPrimary:hover {
+  background: #4338ca;
+  border-color: #4338ca;
+}
+
+.btnOutline {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: transparent;
+  color: white;
+  border: 2px solid #475569;
+  display: inline-block;
+}
+
+.btnOutline:hover {
+  border-color: white;
+}
+
+.projectsSection {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+}
+
+.projectsSection h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #111827;
+}
+
+.sectionSubtitle {
+  color: #6b7280;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.skillsSection {
+  background: #f9fafb;
+  padding: 5rem 2rem;
+}
+
+.skillsSection h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #111827;
+}
+
+@media (max-width: 768px) {
+  .heroContent h1 {
+    font-size: 2.5rem;
+  }
+
+  .heroActions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .projectsGrid {
+    grid-template-columns: 1fr;
+  }
+}

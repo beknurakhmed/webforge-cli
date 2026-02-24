@@ -1,0 +1,190 @@
+.homePage {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  padding: 4rem 0;
+}
+
+.heroGreeting {
+  font-size: 1.1rem;
+  color: var(--primary);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.heroName {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--dark);
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+
+.heroTitle {
+  font-size: 1.35rem;
+  color: var(--text-light);
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.heroDescription {
+  font-size: 1.05rem;
+  color: var(--text);
+  margin-bottom: 2rem;
+  max-width: 500px;
+}
+
+.heroActions {
+  display: flex;
+  gap: 1rem;
+}
+
+.heroVisual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heroEmoji {
+  font-size: 10rem;
+}
+
+.featuredSection {
+  padding: 4rem 0;
+}
+
+.sectionTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--dark);
+  text-align: center;
+}
+
+.sectionSubtitle {
+  text-align: center;
+  color: var(--text-light);
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.sectionCta {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.ctaSection {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, var(--primary), #7c3aed);
+  border-radius: var(--radius);
+  margin: 4rem 0;
+  color: var(--white);
+}
+
+.ctaSection h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+}
+
+.ctaSection p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-bottom: 1.5rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.75rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+  font-size: 0.95rem;
+}
+
+.btnPrimary {
+  composes: btn;
+  background: var(--primary);
+  color: var(--white);
+}
+
+.btnPrimary:hover {
+  background: var(--primary-hover);
+}
+
+.btnOutline {
+  composes: btn;
+  background: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+
+.btnOutline:hover {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.ctaBtnPrimary {
+  composes: btn;
+  background: var(--white);
+  color: var(--primary);
+  padding: 0.875rem 2rem;
+  font-size: 1.05rem;
+}
+
+.ctaBtnPrimary:hover {
+  background: #f3f4f6;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 2.5rem 0;
+  }
+
+  .heroDescription {
+    margin: 0 auto 2rem;
+  }
+
+  .heroActions {
+    justify-content: center;
+  }
+
+  .heroEmoji {
+    font-size: 6rem;
+  }
+
+  .heroName {
+    font-size: 2rem;
+  }
+
+  .projectsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroActions {
+    flex-direction: column;
+    align-items: center;
+  }
+}

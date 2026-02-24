@@ -1,0 +1,101 @@
+.page {
+  max-width: 1200px;
+}
+
+.pageHeader {
+  margin-bottom: 2rem;
+}
+
+.pageHeader h1 {
+  font-size: 1.75rem;
+  color: var(--dark);
+  font-weight: 700;
+}
+
+.pageHeader p {
+  color: var(--text-light);
+  margin-top: 0.25rem;
+}
+
+.dealsBoard {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  min-height: 400px;
+}
+
+.dealsColumn {
+  background: var(--bg);
+  border-radius: var(--radius);
+  padding: 1rem;
+}
+
+.columnHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+
+.columnTitle {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.columnCount {
+  background: var(--white);
+  color: var(--text-light);
+  font-size: 0.75rem;
+  font-weight: 600;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.columnTotal {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin-bottom: 1rem;
+}
+
+.columnCards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.dealCard {
+  background: var(--white);
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.dealCompany {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 0.25rem;
+}
+
+.dealValue {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.dealContact {
+  font-size: 0.8rem;
+  color: var(--text-light);
+}
+
+@media (max-width: 768px) {
+  .dealsBoard {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

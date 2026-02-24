@@ -1,0 +1,103 @@
+// ==========================================
+// Global Styles - Dashboard (Angular)
+// ==========================================
+
+// Variables
+$primary: #4f46e5;
+$primary-hover: #4338ca;
+$primary-bg: #eef2ff;
+$dark: #111827;
+$text: #374151;
+$text-light: #6b7280;
+$text-muted: #9ca3af;
+$bg: #f9fafb;
+$white: #ffffff;
+$border: #e5e7eb;
+$success: #10b981;
+$danger: #ef4444;
+$warning: #f59e0b;
+$radius: 8px;
+$font-stack: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+// ==========================================
+// Reset & Base
+// ==========================================
+:root {
+  font-family: $font-stack;
+  line-height: 1.5;
+  font-weight: 400;
+  color: $text;
+  background-color: $bg;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: $font-stack;
+  color: $text;
+  background: $bg;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+// ==========================================
+// Utility Classes
+// ==========================================
+.badge {
+  display: inline-block;
+  padding: 0.15rem 0.6rem;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 600;
+
+  &-admin {
+    background: #fef3c7;
+    color: #92400e;
+  }
+
+  &-editor {
+    background: #dbeafe;
+    color: #1e40af;
+  }
+
+  &-viewer {
+    background: #f3f4f6;
+    color: $text;
+  }
+}
+
+.status-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 0.25rem;
+
+  &.active {
+    background: $success;
+  }
+
+  &.inactive {
+    background: $text-muted;
+  }
+}
+
+// ==========================================
+// Dark Mode
+// ==========================================
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #242424;
+  }
+}

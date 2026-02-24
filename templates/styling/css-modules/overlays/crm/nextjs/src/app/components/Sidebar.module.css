@@ -1,0 +1,121 @@
+.sidebar {
+  width: var(--sidebar-width);
+  background: var(--dark);
+  color: var(--white);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+}
+
+.sidebarHeader {
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-bottom: 1px solid #1f2937;
+}
+
+.sidebarLogo {
+  font-size: 1.5rem;
+}
+
+.sidebarTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.sidebarNav {
+  flex: 1;
+  padding: 1rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.sidebarLink {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  color: #9ca3af;
+  transition: all 0.2s;
+  font-weight: 500;
+}
+
+.sidebarLink:hover {
+  background: #1f2937;
+  color: var(--white);
+}
+
+.sidebarLinkActive {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.2s;
+  background: var(--primary);
+  color: var(--white);
+}
+
+.sidebarIcon {
+  font-size: 1.2rem;
+}
+
+.sidebarFooter {
+  padding: 1rem 1.25rem;
+  border-top: 1px solid #1f2937;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.userAvatar {
+  font-size: 1.5rem;
+}
+
+.userName {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.userRole {
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 70px;
+    overflow: hidden;
+  }
+
+  .sidebarTitle,
+  .sidebarLink span:not(.sidebarIcon),
+  .sidebarLinkActive span:not(.sidebarIcon),
+  .userInfo div,
+  .userName,
+  .userRole {
+    display: none;
+  }
+
+  .sidebarHeader {
+    justify-content: center;
+  }
+
+  .sidebarLink,
+  .sidebarLinkActive {
+    justify-content: center;
+    padding: 0.75rem;
+  }
+}
