@@ -160,6 +160,8 @@ export async function runCli(): Promise<void> {
       },
 
       routing: ({ results }) => {
+        // Non-landing templates have built-in multi-page routing
+        if (results.templateType !== 'landing') return Promise.resolve(true);
         const fw = results.framework as Framework;
         const hint = BUILTIN_ROUTING_FRAMEWORKS.includes(fw) ? ' (built-in file routing)' : '';
         return p.confirm({
@@ -241,7 +243,9 @@ export async function runCli(): Promise<void> {
   const paradigmLabel = getLabelForValue(PARADIGM_OPTIONS, config.paradigm);
   const stylingLabel = getLabelForValue(STYLING_OPTIONS, String(config.styling));
   const stateLabel = getLabelForValue(STATE_OPTIONS, String(config.stateManagement));
-  const routingLabel = config.routing ? pc.green('Yes') : pc.dim('No');
+  const routingLabel = config.templateType !== 'landing'
+    ? pc.green('Built-in')
+    : config.routing ? pc.green('Yes') : pc.dim('No');
   const i18nLabel = config.i18n ? pc.green('Yes') : pc.dim('No');
   const themeLabel = getLabelForValue(THEME_OPTIONS, String(config.theme));
   const angularModeLabel = config.angularMode ? getLabelForValue(ANGULAR_MODE_OPTIONS, String(config.angularMode)) : '';

@@ -19,14 +19,6 @@ export async function generateProject(config: ProjectConfig): Promise<void> {
     await copyTemplateDir(frameworkDir, targetDir, { projectName });
   }
 
-  // Layer 1.5: Angular mode overlay (modules vs standalone)
-  if (framework === 'angular' && angularMode && angularMode !== 'standalone') {
-    const angularModeDir = path.join(TEMPLATES_DIR, 'angular-mode', angularMode);
-    if (await fs.pathExists(angularModeDir)) {
-      await applyOverlayWithDeps(angularModeDir, targetDir, config);
-    }
-  }
-
   // Layer 2: Template type overlay
   const overlayDir = path.join(TEMPLATES_DIR, 'overlays', templateType, framework);
   if (await fs.pathExists(overlayDir)) {
@@ -65,13 +57,32 @@ export async function generateProject(config: ProjectConfig): Promise<void> {
     );
   }
 
-  // Layer 5.5: Routing overlay
-  if (routing) {
+  // Layer 5.5: Routing overlay (only for landing — other templates have built-in routing)
+  if (routing && templateType === 'landing') {
     await applyOverlayWithDeps(
       path.join(TEMPLATES_DIR, 'routing'),
       targetDir,
       config
     );
+  }
+
+  // Layer 5.6: Angular NgModules conversion
+  if (framework === 'angular' && angularMode === 'modules') {
+    // Shared: main.ts with platformBrowserDynamic
+    const sharedDir = path.join(TEMPLATES_DIR, 'angular-mode', 'modules', 'angular');
+    if (await fs.pathExists(sharedDir)) {
+      await copyTemplateDir(sharedDir, targetDir, { projectName });
+    }
+
+    // Template-specific NgModules files (app.module.ts + non-standalone app.component.ts)
+    let overlayName: string = templateType;
+    if (templateType === 'landing' && routing) {
+      overlayName = 'landing-routing';
+    }
+    const ngModulesDir = path.join(TEMPLATES_DIR, 'angular-mode', 'modules', 'overlays', overlayName);
+    if (await fs.pathExists(ngModulesDir)) {
+      await copyTemplateDir(ngModulesDir, targetDir, { projectName });
+    }
   }
 
   // Layer 6: i18n overlay
