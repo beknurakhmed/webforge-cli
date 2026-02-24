@@ -1,5 +1,9 @@
 <div align="center">
 
+```
+ W E B F O R G E
+```
+
 # webforge-cli
 
 **Интерактивный CLI для создания готовых веб-проектов за секунды**
@@ -8,6 +12,7 @@
 [![license](https://img.shields.io/npm/l/@beknurakhmed/webforge-cli.svg?style=flat-square)](https://github.com/beknurakhmed/webforge-cli/blob/main/LICENSE)
 [![node](https://img.shields.io/node/v/@beknurakhmed/webforge-cli.svg?style=flat-square)](https://nodejs.org)
 [![downloads](https://img.shields.io/npm/dm/@beknurakhmed/webforge-cli.svg?style=flat-square)](https://www.npmjs.com/package/@beknurakhmed/webforge-cli)
+[![website](https://img.shields.io/badge/сайт-webforge.beknurdev.uz-4f46e5?style=flat-square)](https://webforge.beknurdev.uz)
 
 [English](README.md) | **Русский** | [O'zbek](README.uz.md)
 
